@@ -1,0 +1,39 @@
+<div class="col-lg-8 col-md-10 col-sm-12 col-centered">
+  {{#each items as |item|}}
+    <div class="row queue-video">
+      <div class="col-lg-12">
+        <div class="row video-header">
+          <div class="col-xs-3 col-sm-2">
+            <img class="user-img" src="http://placehold.it/100x100">
+          </div>
+          <div class="col-xs-6 col-sm-7">
+            <div class="user-name">
+              {{item.user_id}}
+            </div>
+            <div class="user-location">
+              {{item.name}}
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-3 video-ts">
+            <div>10 min <span>Ago</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <video width="100%" controls>
+          <source src="{{item.video_url}}" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="col-sm-12">
+        <div class="bs-component video-judge">
+          <div class="btn-group btn-group-justified">
+            <a href="#" class="btn btn-default approve">APPROVE</a>
+
+            <a href="#" class="btn btn-default reject">REJECT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

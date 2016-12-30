@@ -1,0 +1,22 @@
+{{#container-comp title="Videos"}}
+  <div class="col-md-10 col-sm-12 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <div class="pull-left">
+              <div class="btn-group">
+                  <button type="button" class="btn active btn-filter" data-target="pagado">APPROVED</button>
+                  <button type="button" class="btn btn-filter" data-target="pendiente">REJECTED</button>
+                  <button type="button" class="btn btn-filter" data-target="all">ALL</button>
+              </div>
+          </div>
+          <div class="pull-right">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-filter" data-target="pagado">NEW</button>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  {{videos-list items=videos}}
+  {{outlet}}
+{{/container-comp}}

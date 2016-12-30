@@ -1,0 +1,15 @@
+{{#container-comp title="Users"}}
+  {{outlet}}
+  <div class="col-md-10 col-sm-12 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <div class="pull-right">
+              <div class="btn-group">
+                  {{#link-to 'users.new' class="btn btn-filter" }}NEW{{/link-to}}
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  {{users-list items=users}}
+{{/container-comp}}
