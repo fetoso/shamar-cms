@@ -1,42 +1,25 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function () {
     return Ember.RSVP.hash({
       categories: this.store.findAll('category')
-    //   categories: [
-    //     {
-    //       id: 0,
-    //       name: 'Rock',
-    //       slug: 'rock',
-    //     },
-    //     {
-    //       id: 1,
-    //       name: 'Balad',
-    //       slug: 'balad',
-    //     },
-    //     {
-    //       id: 2,
-    //       name: 'Jazz',
-    //       slug: 'jazz',
-    //     },
-    //     {
-    //       id: 3,
-    //       name: 'Hip Hop',
-    //       slug: 'hiphop',
-    //     },
-    //     {
-    //       id: 4,
-    //       name: 'Funk',
-    //       slug: 'funk',
-    //     },
-    //   ]
     });
   },
 
   setupController: function(controller, models) {
     return controller.setProperties(models);
+  },
+  session: Ember.inject.service('session'),
+  actions: {
+    deleteCategory: function(category) {
+      var _this = this;
+      category.destroyRecord().then(function() {
+        _this.transitionTo('categories');
+      });
+    },
   }
 
 });

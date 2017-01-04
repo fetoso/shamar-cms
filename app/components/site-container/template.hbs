@@ -1,4 +1,3 @@
-
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -16,10 +15,15 @@
         <li>{{#link-to 'videos'}}Videos{{/link-to}}</li>
         <li>{{#link-to 'users'}}Users{{/link-to}}</li>
         <li>{{#link-to 'categories'}}Categories{{/link-to}}</li>
-        <li><a class='logout-btn'>Logout</a></li>
+        <li><a class='logout-btn' {{action 'logout'}}>Logout</a></li>
 
       </ul>
 
     </div>
+  </div>
+</div>
+<div class="container" id="main-container">
+  <div class="row">
+    {{yield}}
   </div>
 </div>

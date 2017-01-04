@@ -1,6 +1,7 @@
 /*jshint node:true*/
 module.exports = function(app) {
   var express = require('express');
+  var _ = require('underscore');
   var videosRouter = express.Router();
 
   var videos = [
@@ -47,13 +48,27 @@ module.exports = function(app) {
   ];
 
   videosRouter.get('/', function(req, res) {
-    res.send({
-      'videos': videos
-    });
+    if (req.query.status) {
+      var list = _.where(videos, { status: parseInt(req.query.status) });
+      res.send({
+        'videos': list
+      });
+    } else {
+      res.send({
+        'videos': videos
+      });
+    }
+
   });
 
   videosRouter.post('/', function(req, res) {
-    res.status(201).end();
+    var newVideo = req.body.video;
+    var newId = videos.length;
+    newVideo.id = newId;
+    videos.push(newVideo)
+    res.send({
+      video: newVideo
+    });
   });
 
   videosRouter.get('/:id', function(req, res) {
@@ -65,11 +80,20 @@ module.exports = function(app) {
   });
 
   videosRouter.put('/:id', function(req, res) {
-    res.send({
-      'videos': {
-        id: req.params.id
+    var editedVideo = req.body.video;
+    editedVideo.id = req.params.id;
+    for (var i = 0; i < videos.length; i++) {
+      if (videos[i]['id'] == req.params.id) {
+          videos[i] = editedVideo
+          res.send({
+            'videos': {
+              id: req.params.id
+            }
+          });
+      } else if (videos.length-1) {
+        res.status(204).end();
       }
-    });
+    }
   });
 
   videosRouter.delete('/:id', function(req, res) {

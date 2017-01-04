@@ -7,5 +7,15 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
     controller.set('user', model);
+  },
+
+  actions: {
+    updateUser: function(user) {
+      var _this = this;
+      user.save().then( function() {
+        _this.transitionTo('users');
+      });
+    }
   }
+
 });

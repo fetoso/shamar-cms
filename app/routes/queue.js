@@ -1,33 +1,34 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function () {
      return Ember.RSVP.hash({
-       // unjudged: this.store.find('video')
-       unjudged: [
-         {
-           id: 0,
-           name: 'El video mas cool',
-           status: -1,
-           video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-           shams: 0,
-           user_id: 0,
-         },
-         {
-           id:1,
-           name: 'Otro video',
-           status: -1,
-           video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-           shams: 0,
-           user_id: 2,
-         },
-       ]
+       unjudged: this.store.query('video', { status: -1 })
      });
    },
 
    setupController: function(controller, models) {
      return controller.setProperties(models);
+   },
+   session: Ember.inject.service('session'),
+   actions: {
+     approveVideo: function(video) {
+       var _this = this;
+       video.set('status', 1);
+       video.save().then(function() {
+         _this.refresh();
+       });
+     },
+     rejectVideo: function(video) {
+       var _this = this;
+       video.set('status', 0);
+       video.save().then(function() {
+         _this.refresh();
+       });
+     }
    }
 
 });

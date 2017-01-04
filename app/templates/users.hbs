@@ -1,4 +1,4 @@
-{{#container-comp title="Users"}}
+{{#site-container session=session title="Users" action='logout'}}
   {{outlet}}
   <div class="col-md-10 col-sm-12 col-centered">
     <div class="panel panel-default">
@@ -11,5 +11,5 @@
         </div>
     </div>
   </div>
-  {{users-list items=users}}
-{{/container-comp}}
+  {{users-list items=users action='deleteUser'}}
+{{/site-container}}

@@ -1,4 +1,4 @@
-{{#container-comp title="Categories"}}
+{{#site-container session=session title="Categories" action='logout'}}
   {{outlet}}
   <div class="col-md-10 col-sm-12 col-centered">
     <div class="panel panel-default">
@@ -11,5 +11,5 @@
         </div>
     </div>
   </div>
-  {{categories-list items=categories}}
-{{/container-comp}}
+  {{categories-list items=categories action='deleteCategory'}}
+{{/site-container}}

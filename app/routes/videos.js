@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function () {
      return Ember.RSVP.hash({
@@ -10,6 +11,9 @@ export default Ember.Route.extend({
 
    setupController: function(controller, models) {
      return controller.setProperties(models);
-   }
+ },
+ session: Ember.inject.service('session'),
+ actions: {
+ }
 
 });

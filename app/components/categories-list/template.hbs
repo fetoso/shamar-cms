@@ -19,7 +19,7 @@
                 <div class="bs-component table-commands">
                   <div class="btn-group btn-group-justified">
                     {{#link-to 'categories.category' item class="btn btn-default send" }}EDIT{{/link-to}}
-                    <a href="#" class="btn btn-default cancel">DELETE</a>
+                    <a href="#" class="btn btn-default cancel" {{action 'deleteCategory' item}}>DELETE</a>
                   </div>
                 </div>
               </td>

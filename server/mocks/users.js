@@ -67,6 +67,13 @@ module.exports = function(app) {
   });
 
   usersRouter.delete('/:id', function(req, res) {
+    var userId = req.param('id');
+    for (var i = 0; i < users.length; i++) {
+      if (parseInt(userId) === users[i].id) {
+        users.splice(i, 1);
+        break;
+      }
+    }
     res.status(204).end();
   });
 

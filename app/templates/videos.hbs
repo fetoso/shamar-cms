@@ -1,22 +1,21 @@
-{{#container-comp title="Videos"}}
+{{#site-container session=session title="Videos" action='logout'}}
   <div class="col-md-10 col-sm-12 col-centered">
     <div class="panel panel-default">
       <div class="panel-body">
           <div class="pull-left">
               <div class="btn-group">
-                  <button type="button" class="btn active btn-filter" data-target="pagado">APPROVED</button>
-                  <button type="button" class="btn btn-filter" data-target="pendiente">REJECTED</button>
-                  <button type="button" class="btn btn-filter" data-target="all">ALL</button>
+                  {{#link-to 'videos.approved' class="btn btn-filter" }}APPROVED{{/link-to}}
+                  {{#link-to 'videos.rejected' class="btn btn-filter" }}REJECTED{{/link-to}}
+                  {{#link-to 'videos.all' class="btn btn-filter" }}ALL{{/link-to}}
               </div>
           </div>
-          <div class="pull-right">
+          {{!-- <div class="pull-right">
               <div class="btn-group">
                   <button type="button" class="btn btn-filter" data-target="pagado">NEW</button>
               </div>
-          </div>
+          </div> --}}
         </div>
     </div>
   </div>
-  {{videos-list items=videos}}
   {{outlet}}
-{{/container-comp}}
+{{/site-container}}

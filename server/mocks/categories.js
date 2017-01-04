@@ -64,6 +64,13 @@ module.exports = function(app) {
   });
 
   categoriesRouter.delete('/:id', function(req, res) {
+    var categoryId = req.param('id');
+    for (var i = 0; i < categories.length; i++) {
+      if (parseInt(categoryId) === categories[i].id) {
+        categories.splice(i, 1);
+        break;
+      }
+    }
     res.status(204).end();
   });
 

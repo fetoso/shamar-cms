@@ -1,4 +1,4 @@
-{{#container-comp title="Queue"}}
+{{#site-container session=session title="Queue" action='logout'}}
   {{outlet}}
-  {{unjudged-list items=unjudged}}
-{{/container-comp}}
+  {{unjudged-list items=unjudged approve='approveVideo' reject='rejectVideo'}}
+{{/site-container}}

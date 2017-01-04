@@ -19,14 +19,19 @@ body {
     color: #fff;
     font-weight: 300; }
   .navbar .navbar-nav > li a:hover, .navbar .navbar-nav > li a:focus, .navbar .navbar-nav > li a:active {
+    background-color: #ffad1b;
     color: #fff; }
-  .navbar .navbar-nav > li:hover, .navbar .navbar-nav > li:focus {
-    background-color: #ffad1b; }
   .navbar .navbar-nav .active {
     background-color: #ffad1b;
     font-size: 15px;
     font-weight: 500;
     color: #000; }
+  .navbar .navbar-nav .logout-btn, .navbar .navbar-nav .logout-btn.active, .navbar .navbar-nav .logout-btn:hover, .navbar .navbar-nav .logout-btn.active:hover {
+    background-color: #241704;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 15px; }
 
 .page-header h1 {
   background-color: #ffad1b;

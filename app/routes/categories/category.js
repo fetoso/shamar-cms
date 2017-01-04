@@ -7,5 +7,15 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
     controller.set('category', model);
+  },
+
+  actions: {
+    updateCategory: function(category) {
+      var _this = this;
+      category.save().then( function() {
+        _this.transitionTo('categories');
+      });
+    }
   }
+
 });

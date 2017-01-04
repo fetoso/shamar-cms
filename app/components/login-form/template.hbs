@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 col-md-8 col-sm-12 col-centered">
+
+          <div class="well bs-component shamar-form">
+            <form class="form-horizontal" {{action 'submit' on='submit'}}>
+              <fieldset>
+                <legend>Login</legend>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    {{input value=credentials.identification class='form-control' placeholder='Email'}}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-12">
+                    {{input type="password" value=credentials.password class='form-control' placeholder='Password'}}
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <div class="bs-component form-commands">
+                      <div class="btn-group btn-group-justified">
+                        <button type="submit" class="btn btn-default send" style="width: 100%">LOGIN</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
+        </div>
+    </div>
+</div>
