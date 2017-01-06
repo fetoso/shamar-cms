@@ -1,38 +1,8 @@
 /*jshint node:true*/
 module.exports = function(app) {
   var express = require('express');
+  var users = require('../db.js').User;
   var usersRouter = express.Router();
-
-  var users = [
-    {
-      id: 0,
-      name: 'Remigio',
-      lastname: 'Mercado',
-      email: 'rmercado@gmail.com',
-      role: 0,
-    },
-    {
-      id: 1,
-      name: 'Marcos',
-      lastname: 'Ramirez',
-      email: 'mramirez@gmail.com',
-      role: 1,
-    },
-    {
-      id: 2,
-      name: 'Boberto',
-      lastname: 'Zangano',
-      email: 'bzangano@gmail.com',
-      role: 1,
-    },
-    {
-      id: 3,
-      name: 'Pablo',
-      lastname: 'Éndejo',
-      email: 'pendejo@gmail.com',
-      role: 1,
-    },
-  ];
 
   usersRouter.get('/', function(req, res) {
     res.send({
@@ -59,11 +29,20 @@ module.exports = function(app) {
   });
 
   usersRouter.put('/:id', function(req, res) {
-    res.send({
-      'users': {
-        id: req.params.id
+    var editedUser = req.body.user;
+    editedUser.id = req.params.id;
+    for (var i = 0; i < users.length; i++) {
+      if (users[i]['id'] == req.params.id) {
+          users[i] = editedUser
+          res.send({
+            'users': {
+              id: req.params.id
+            }
+          });
+      } else if (users.length-1) {
+        res.status(204).end();
       }
-    });
+    }
   });
 
   usersRouter.delete('/:id', function(req, res) {

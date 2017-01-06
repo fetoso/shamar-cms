@@ -1,35 +1,9 @@
 /*jshint node:true*/
 module.exports = function(app) {
   var express = require('express');
+  var categories = require('../db.js').Category;
   var categoriesRouter = express.Router();
 
-  var categories = [
-       {
-         id: 0,
-         name: 'Rock',
-         slug: 'rock',
-       },
-       {
-         id: 1,
-         name: 'Balad',
-         slug: 'balad',
-       },
-       {
-         id: 2,
-         name: 'Jazz',
-         slug: 'jazz',
-       },
-       {
-         id: 3,
-         name: 'Hip Hop',
-         slug: 'hiphop',
-       },
-       {
-         id: 4,
-         name: 'Funk',
-         slug: 'funk',
-       },
-     ];
 
   categoriesRouter.get('/', function(req, res) {
     res.send({
@@ -56,11 +30,20 @@ module.exports = function(app) {
   });
 
   categoriesRouter.put('/:id', function(req, res) {
-    res.send({
-      'categories': {
-        id: req.params.id
+    var editedCategory = req.body.category;
+    editedCategory.id = req.params.id;
+    for (var i = 0; i < categories.length; i++) {
+      if (categories[i]['id'] == req.params.id) {
+          categories[i] = editedCategory
+          res.send({
+            'categories': {
+              id: req.params.id
+            }
+          });
+      } else if (categories.length-1) {
+        res.status(204).end();
       }
-    });
+    }    
   });
 
   categoriesRouter.delete('/:id', function(req, res) {

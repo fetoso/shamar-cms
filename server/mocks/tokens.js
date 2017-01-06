@@ -1,13 +1,12 @@
 /*jshint node:true*/
 module.exports = function(app) {
   var express = require('express');
+  var users = require('../db.js').User;
+  var _ = require('underscore');
   var tokensRouter = express.Router();
   var jwt = require('jsonwebtoken');
 
-  var user = {
-    email: 'test@test.com',
-    password: 'secret'
-  }
+  var admins = _.where(users, { role: 0 });
 
   tokensRouter.get('/', function(req, res) {
     res.send({
@@ -16,17 +15,19 @@ module.exports = function(app) {
   });
 
   tokensRouter.post('/', function(req, res) {
-      if (req.body.email === user.email && req.body.password === user.password) {
+    for (var i = 0; i < admins.length; i++) {
+      if (req.body.email === admins[i].email && req.body.password === admins[i].password) {
           var token;
 
-          token = jwt.sign({ email: user.email }, 'secretkey');
+          token = jwt.sign({ email: admins[i].email }, 'secretkey');
 
           res.send({
               token: token
           });
-      } else {
+      } else if (i == admins.length-1) {
           res.status(401).end();
       }
+    }
   });
 
   tokensRouter.get('/:id', function(req, res) {

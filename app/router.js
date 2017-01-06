@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('rejected');
     this.route('approved');
     this.route('all', { path: '/' });
+    this.route('preview', { path: ':video_id' });
   });
   this.route('categories', function() {
     this.route('new');

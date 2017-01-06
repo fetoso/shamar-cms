@@ -1,0 +1,142 @@
+var videos = [
+  {
+    id: 0,
+    name: 'El video mas cool',
+    status: -1,
+    video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
+    shams: 0,
+    user_id: 0,
+  },
+  {
+    id: 1,
+    name: 'Otro video',
+    status: -1,
+    video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
+    shams: 0,
+    user_id: 2,
+  },
+  {
+    id: 2,
+    name: 'Pelicula 100',
+    status: 0,
+    video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
+    shams: 0,
+    user_id: 3,
+  },
+  {
+    id: 3,
+    name: 'Filme "Grabado"',
+    status: 1,
+    video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
+    shams: 30,
+    user_id: 1,
+  },
+  {
+    id: 4,
+    name: 'Le filme',
+    status: 0,
+    video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
+    shams: 0,
+    user_id: 0,
+  },
+];
+
+var categories = [
+  {
+    id: 0,
+    name: 'Rock',
+    slug: 'rock',
+  },
+  {
+    id: 1,
+    name: 'Balad',
+    slug: 'balad',
+  },
+  {
+    id: 2,
+    name: 'Jazz',
+    slug: 'jazz',
+  },
+  {
+    id: 3,
+    name: 'Hip Hop',
+    slug: 'hiphop',
+  },
+  {
+    id: 4,
+    name: 'Funk',
+    slug: 'funk',
+  },
+];
+
+var users = [
+ {
+   id: 0,
+   name: 'Remigio',
+   lastname: 'Mercado',
+   email: 'rmercado@gmail.com',
+   password: 'secret',
+   city: 'San Juan',
+   country: 'PR',
+   phone: '787-787-7878',
+   birthdate: null,
+   state: 1,
+   role: 0,
+ },
+ {
+   id: 1,
+   name: 'Marcos',
+   lastname: 'Ramirez',
+   email: 'mramirez@gmail.com',
+   password: 'secret',
+   city: 'San Juan',
+   country: 'PR',
+   phone: '787-787-7878',
+   birthdate: null,
+   state: 1,
+   role: 1,
+ },
+ {
+   id: 2,
+   name: 'Boberto',
+   lastname: 'Zangano',
+   email: 'bzangano@gmail.com',
+   password: 'secret',
+   city: 'San Juan',
+   country: 'PR',
+   phone: '787-787-7878',
+   birthdate: null,
+   state: 1,
+   role: 1,
+ },
+ {
+   id: 3,
+   name: 'Pablo',
+   lastname: 'Éndejo',
+   email: 'pendejo@gmail.com',
+   password: 'secret',
+   city: 'San Juan',
+   country: 'PR',
+   phone: '787-787-7878',
+   birthdate: null,
+   state: 1,
+   role: 1,
+ },
+ {
+   id: 4,
+   name: 'Test',
+   lastname: 'Guy',
+   email: 'test@test.com',
+   password: 'secret',
+   city: 'San Juan',
+   country: 'PR',
+   phone: '787-787-7878',
+   birthdate: null,
+   state: 1,
+   role: 0,
+ },
+];
+
+module.exports.Category = categories;
+module.exports.User = users;
+module.exports.Video = videos;

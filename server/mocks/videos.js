@@ -1,51 +1,10 @@
 /*jshint node:true*/
 module.exports = function(app) {
   var express = require('express');
+  var videos = require('../db.js').Video;
+  var users = require('../db.js').User;
   var _ = require('underscore');
   var videosRouter = express.Router();
-
-  var videos = [
-    {
-      id: 0,
-      name: 'El video mas cool',
-      status: -1,
-      video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-      shams: 0,
-      user_id: 0,
-    },
-    {
-      id: 1,
-      name: 'Otro video',
-      status: -1,
-      video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-      shams: 0,
-      user_id: 2,
-    },
-    {
-      id: 2,
-      name: 'Pelicula 100',
-      status: 0,
-      video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-      shams: 0,
-      user_id: 3,
-    },
-    {
-      id: 3,
-      name: 'Filme "Grabado"',
-      status: 1,
-      video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-      shams: 30,
-      user_id: 1,
-    },
-    {
-      id: 4,
-      name: 'Le filme',
-      status: 0,
-      video_url: 'http://video.webmfiles.org/big-buck-bunny_trailer.webm',
-      shams: 0,
-      user_id: 0,
-    },
-  ];
 
   videosRouter.get('/', function(req, res) {
     if (req.query.status) {
@@ -58,7 +17,6 @@ module.exports = function(app) {
         'videos': videos
       });
     }
-
   });
 
   videosRouter.post('/', function(req, res) {

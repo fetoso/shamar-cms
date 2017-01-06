@@ -99,12 +99,15 @@ body {
     background-color: #ffad1b;
     padding: 15px;
     border: none; }
-  .shamar-form input {
+  .shamar-form input, .shamar-form select {
     border-radius: 0;
     border: none;
     color: #fff;
     background-color: #303030;
     padding: 30px; }
+  .shamar-form .select-container {
+    padding: 15px 24px;
+    background-color: #303030; }
   .shamar-form .form-control::-webkit-input-placeholder {
     color: #737373; }
   .shamar-form .form-control:-moz-placeholder {

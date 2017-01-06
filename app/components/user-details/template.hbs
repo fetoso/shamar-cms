@@ -1,3 +1,5 @@
+<div class="row" style='position: absolute;left:0; width: 100%; height: 100%; margin:0;padding:0;background-color:rgba(0,0,0,.8);z-index:10;'>
+
 <div class="col-lg-5 col-md-8 col-sm-12 col-centered">
 
   <div class="well bs-component shamar-form">
@@ -21,15 +23,56 @@
         </div>
         <div class="form-group">
           <div class="col-lg-12">
-            {{input class="form-control" placeholder="Role" value=item.role}}
+            {{input class="form-control" placeholder="Telephone" value=item.phone}}
           </div>
         </div>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <div class="select-container">
+              {{#x-select class="form-control" value=item.country action='selectCountry' as |xs|}}
+                {{#xs.option value='PR'}}Puerto Rico{{/xs.option}}
+                {{#xs.option value='USA'}}United States{{/xs.option}}
+              {{/x-select}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <div class="select-container">
+              {{#x-select class="form-control" value=item.city action='selectCity' as |xs|}}
+                {{#xs.option value='San Juan'}}San Juan{{/xs.option}}
+                {{#xs.option value='Ponce'}}Ponce{{/xs.option}}
+              {{/x-select}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-12">
+            {{bootstrap-datepicker class="form-control" value=item.birthdate placeholder="Birthdate" format='mm/dd/yyyy'}}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <div class="select-container">
+              {{#x-select class="form-control" value=item.role action='selectRole' as |xs|}}
+                {{#xs.option value=0}}Admin{{/xs.option}}
+                {{#xs.option value=1}}User{{/xs.option}}
+              {{/x-select}}
+            </div>
+          </div>
+        </div>
+
 
         <div class="form-group">
           <div class="col-sm-12">
             <div class="bs-component form-commands">
               <div class="btn-group btn-group-justified">
-                <a class="btn btn-default cancel" style="width: 50%">CANCEL</a>
+                <style media="screen">
+                  .btn.btn-default.cancel {
+                    width: 50%;
+                  }
+                </style>
+                {{#link-to 'users' class="btn btn-default cancel"}}CANCEL{{/link-to}}
                 <button type="submit" class="btn btn-default send" style="width: 100%">SUBMIT</button>
               </div>
             </div>
@@ -39,4 +82,5 @@
     </form>
   </div>
 
+</div>
 </div>
