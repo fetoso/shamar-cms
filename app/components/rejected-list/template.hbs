@@ -14,13 +14,13 @@
           {{#each items as |item|}}
             <tr>
               <td class='hidden-xs'>{{item.id}}</td>
-              <td>{{#link-to 'videos.preview' item }}{{item.name}}{{/link-to}}</td>
+              <td><a href="#" data-toggle="modal" data-target="#modal{{item.id}}">{{item.name}}</a></td>
               <td class='hidden-xs'>{{item.user_id}}</td>
               <td class='hidden-xs'>{{item.status}}</td>
               <td>
                 <div class="bs-component table-commands">
                   <div class="btn-group btn-group-justified">
-                    <a href="#" class="btn btn-default send">EDIT</a>
+                    {{#link-to 'videos.video' item class="btn btn-default send" }}EDIT{{/link-to}}
                     <a href="#" class="btn btn-default cancel">DELETE</a>
                   </div>
                 </div>
@@ -31,3 +31,18 @@
       </table>
     </div>
 </div>
+{{#each items as |item|}}
+<div class="modal fade" id="modal{{item.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <video width="100%" controls>
+      <source src="{{item.video_url}}" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+    <div class="bs-component table-commands">
+      <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-default cancel" data-dismiss="modal">CLOSE</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}

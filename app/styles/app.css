@@ -147,6 +147,29 @@ body {
     padding: 10px;
     line-height: 3;
     border-top: 1px solid #000; }
+    .shamar-table .table > thead > tr > th a, .shamar-table .table > thead > tr > th a:hover, .shamar-table .table > thead > tr > th a:focus, .shamar-table .table > thead > tr > th a:active,
+    .shamar-table .table > tbody > tr > th a,
+    .shamar-table .table > tbody > tr > th a:hover,
+    .shamar-table .table > tbody > tr > th a:focus,
+    .shamar-table .table > tbody > tr > th a:active,
+    .shamar-table .table > tfoot > tr > th a,
+    .shamar-table .table > tfoot > tr > th a:hover,
+    .shamar-table .table > tfoot > tr > th a:focus,
+    .shamar-table .table > tfoot > tr > th a:active,
+    .shamar-table .table > thead > tr > td a,
+    .shamar-table .table > thead > tr > td a:hover,
+    .shamar-table .table > thead > tr > td a:focus,
+    .shamar-table .table > thead > tr > td a:active,
+    .shamar-table .table > tbody > tr > td a,
+    .shamar-table .table > tbody > tr > td a:hover,
+    .shamar-table .table > tbody > tr > td a:focus,
+    .shamar-table .table > tbody > tr > td a:active,
+    .shamar-table .table > tfoot > tr > td a,
+    .shamar-table .table > tfoot > tr > td a:hover,
+    .shamar-table .table > tfoot > tr > td a:focus,
+    .shamar-table .table > tfoot > tr > td a:active {
+      color: #fff;
+      text-decoration: none; }
   .shamar-table .table-hover > tbody > tr:hover {
     background-color: #000; }
   .shamar-table .table-striped > tbody > tr:nth-of-type(odd) {
@@ -164,6 +187,17 @@ body {
     .shamar-table .table-commands .cancel {
       background-color: #241704;
       color: #fff; }
+
+.modal-dialog {
+  padding-top: 80px; }
+  .modal-dialog .btn {
+    border: none;
+    border-radius: 0;
+    letter-spacing: 1px;
+    padding: 15px; }
+  .modal-dialog .cancel {
+    background-color: #c17b01;
+    color: #fff; }
 
 body {
   padding-top: 50px;
