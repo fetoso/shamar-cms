@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-  model: function () {
+   model: function () {
      return Ember.RSVP.hash({
        unjudged: this.store.query('video', { status: -1 })
      });

@@ -8,6 +8,10 @@ export default Ember.Route.extend({
     setupController: function(controller, model) {
       controller.set('video', model);
     },
+    // renderTemplate: function() {
+    //   this.render({'into':'videos', 'outlet':'edit'});
+    // },
+    templateName: 'videos/video',
 
     actions: {
       updateVideo: function(video) {

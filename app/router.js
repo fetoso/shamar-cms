@@ -12,11 +12,17 @@ Router.map(function() {
     this.route('user', { path: ':user_id' }); // users/3
   });
   this.route('videos', function() {
-    this.route('rejected');
-    this.route('approved');
-    this.route('all', { path: '/' });
+    this.route('rejected', function() {
+      this.route('video', { path: ':video_id' });
+    });
+    this.route('approved', function() {
+      this.route('video', { path: ':video_id' });
+    });
+    this.route('all', { path: '/' }, function() {
+      this.route('video', { path: ':video_id' });
+    });
     // this.route('preview', { path: ':video_id' });
-    this.route('video', { path: ':video_id' });
+    // this.route('video', { path: ':video_id' });
   });
   this.route('categories', function() {
     this.route('new');
