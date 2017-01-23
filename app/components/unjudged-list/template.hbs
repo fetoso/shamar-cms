@@ -7,17 +7,15 @@
             <img class="user-img" src="http://placehold.it/100x100">
           </div>
           <div class="col-xs-6 col-sm-7">
-            {{#with user as |thisUser|}}
-              <div class="user-name">
-                {{thisUser.name}} {{thisUser.lastname}}
-              </div>
-            {{/with}}
+            <div class="user-name">
+              {{item.user.name}} {{item.user.lastname}}
+            </div>
             <div class="user-location">
               {{item.name}}
             </div>
           </div>
           <div class="col-xs-3 col-sm-3 video-ts">
-            <div>10 min <span>Ago</span></div>
+            <div>{{moment-from-now item.uploaded hideSuffix=true}}<span>Ago</span></div>
           </div>
         </div>
       </div>

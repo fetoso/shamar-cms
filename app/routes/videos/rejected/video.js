@@ -7,18 +7,20 @@ export default Ember.Route.extend({
 
     setupController: function(controller, model) {
       controller.set('video', model);
+      this.store.findAll('category').then(function(categories) {
+        controller.set('categories', categories);
+      });
     },
-    // renderTemplate: function() {
-    //   this.render({'into':'videos', 'outlet':'edit'});
-    // },
+
     templateName: 'videos/video',
 
     actions: {
       updateVideo: function(video) {
         var _this = this;
-        video.save().then( function() {
-          _this.transitionTo('videos');
-        });
+        console.log(this.store.query('category', { slug: video.get('category') }));
+        // video.save().then( function() {
+        //   _this.transitionTo('videos');
+        // });
       }
     }
 });

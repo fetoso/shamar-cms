@@ -7,10 +7,11 @@ export default Ember.Route.extend({
 
     setupController: function(controller, model) {
       controller.set('video', model);
+      this.store.findAll('category').then(function(categories) {
+        controller.set('categories', categories);
+      });
     },
-    // renderTemplate: function() {
-    //   this.render({'into':'videos', 'outlet':'edit'});
-    // },
+
     templateName: 'videos/video',
 
     actions: {

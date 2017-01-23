@@ -6,10 +6,13 @@ export default Ember.Route.extend({
 
   actions: {
     logout: function() {
-      var _this = this;
-      this.get('session').invalidate().then(function() {
-          _this.transitionTo('login');
-      });
+      if (confirm("Are you sure you want to Logout?")) {
+        var _this = this;
+        this.get('session').invalidate().then(function() {
+            _this.transitionTo('login');
+        });
+      }
+
     },
     // openModal: function(item) {
     //     return this.render('videos.preview', {

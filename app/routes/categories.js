@@ -15,10 +15,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
   actions: {
     deleteCategory: function(category) {
-      var _this = this;
-      category.destroyRecord().then(function() {
-        _this.transitionTo('categories');
-      });
+      if (confirm("Are you sure you want to Delete this item?")) {
+        var _this = this;
+        category.destroyRecord().then(function() {
+          _this.transitionTo('categories');
+        });
+      }
     },
   }
 

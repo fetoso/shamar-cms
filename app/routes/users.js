@@ -15,10 +15,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service('session'),
   actions: {
     deleteUser: function(user) {
-      var _this = this;
-      user.destroyRecord().then(function() {
-        _this.transitionTo('users');
-      });
+      if (confirm("Are you sure you want to Delete this item?")) {
+        var _this = this;
+        user.destroyRecord().then(function() {
+          _this.transitionTo('users');
+        });
+      }
     }
   }
 
