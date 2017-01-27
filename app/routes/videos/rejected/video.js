@@ -17,10 +17,10 @@ export default Ember.Route.extend({
     actions: {
       updateVideo: function(video) {
         var _this = this;
-        console.log(this.store.query('category', { slug: video.get('category') }));
-        // video.save().then( function() {
-        //   _this.transitionTo('videos');
-        // });
+        // console.log(this.store.query('category', { slug: video.get('category') }));
+        video.save().then( function() {
+          _this.transitionTo('videos');
+        });
       }
     }
 });

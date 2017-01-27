@@ -7,12 +7,12 @@
           <legend>New User</legend>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Name" value=item.name}}
+              {{input class="form-control" placeholder="Name" value=item.first_name}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Last Name" value=item.lastname}}
+              {{input class="form-control" placeholder="Last Name" value=item.last_name}}
             </div>
           </div>
           <div class="form-group">
@@ -53,9 +53,9 @@
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.role action='selectRole' as |xs|}}
-                  {{#xs.option value=0}}Admin{{/xs.option}}
-                  {{#xs.option value=1}}User{{/xs.option}}
+                {{#x-select class="form-control" value=item.is_admin action='selectRole' as |xs|}}
+                  {{#xs.option value=true}}Admin{{/xs.option}}
+                  {{#xs.option value=false}}User{{/xs.option}}
                 {{/x-select}}
               </div>
             </div>

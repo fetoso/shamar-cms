@@ -7,13 +7,13 @@
           <legend>Edit Video</legend>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Name" value=item.name}}
+              {{input class="form-control" placeholder="Name" value=item.original_name}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.category action='selectCategory' as |xs|}}
+                {{#x-select class="form-control" value=item.category._id action='selectCategory' as |xs|}}
                   {{#each cats as |cat|}}
                     {{#xs.option value=cat.id}}{{cat.name}}{{/xs.option}}
                   {{/each}}
@@ -25,9 +25,9 @@
             <div class="col-lg-12">
               <div class="select-container">
                 {{#x-select class="form-control" value=item.status action='selectStatus' as |xs|}}
-                  {{#xs.option value=-1}}Unjudge{{/xs.option}}
-                  {{#xs.option value=0}}Reject{{/xs.option}}
-                  {{#xs.option value=1}}Accept{{/xs.option}}
+                  {{#xs.option value='pending'}}Unjudge{{/xs.option}}
+                  {{#xs.option value='rejected'}}Reject{{/xs.option}}
+                  {{#xs.option value='approved'}}Accept{{/xs.option}}
                 {{/x-select}}
               </div>
             </div>

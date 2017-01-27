@@ -18,18 +18,21 @@ module.exports = function(environment) {
     },
 
     APP: {
+      usingCors: false,
+  		corsWithCreds: false,
+  		apiURL: null
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
 
   ENV['ember-simple-auth'] = {
-    authorizer: 'authorizer:token'
+    authorizer: 'authorizer:oauth2'
   };
 
   ENV['ember-simple-auth-token'] = {
     identificationField: 'email',
-    serverTokenEndpoint: '/api/tokens'
+    serverTokenEndpoint: '/api/accounts/login'
   };
 
   if (environment === 'development') {
@@ -38,6 +41,17 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+  }
+
+  if (environment === 'dev') {
+    ENV.APP.usingCors = true;
+		ENV.APP.corsWithCreds = true;
+		ENV.APP.apiURL = 'http://shamar-dev.us-east-1.elasticbeanstalk.com';
+
+    ENV['ember-simple-auth-token'] = {
+      identificationField: 'email',
+      serverTokenEndpoint: ENV.APP.apiURL + '/api/accounts/login'
+    };
   }
 
   if (environment === 'test') {

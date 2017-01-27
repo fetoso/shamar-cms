@@ -6,8 +6,18 @@ module.exports = function(app) {
 
 
   categoriesRouter.get('/', function(req, res) {
+    // res.send({
+    //   'categories': categories
+    // });
     res.send({
-      'categories': categories
+      data: categories,
+      paginator: {
+        "limit": 10,
+        "page": 1,
+        "total": 1,
+        "count": categories.length,
+        "num_pages": 1
+      }
     });
   });
 
@@ -43,7 +53,7 @@ module.exports = function(app) {
       } else if (categories.length-1) {
         res.status(204).end();
       }
-    }    
+    }
   });
 
   categoriesRouter.delete('/:id', function(req, res) {

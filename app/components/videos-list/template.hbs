@@ -3,7 +3,7 @@
       <table class="table table-striped table-hover ">
         <thead>
           <tr>
-            <th class='hidden-xs'>#</th>
+            <!-- <th class='hidden-xs'>#</th> -->
             <th>Name</th>
             <th class='hidden-xs'>User Name</th>
             <th class='hidden-xs'>Status</th>
@@ -13,9 +13,9 @@
         <tbody>
           {{#each items as |item|}}
             <tr>
-              <td class='hidden-xs'>{{item.id}}</td>
-              <td><a href="#" data-toggle="modal" data-target="#modal{{item.id}}">{{item.name}}</a></td>
-              <td class='hidden-xs'>{{item.user.name}} {{item.user.lastname}}</td>
+              <!-- <td class='hidden-xs'>{{item.id}}</td> -->
+              <td><a href="#" data-toggle="modal" data-target="#modal{{item.id}}">{{item.original_name}}</a></td>
+              <td class='hidden-xs'>{{item.owner.first_name}} {{item.owner.last_name}}</td>
               <td class='hidden-xs'>{{item.status}}</td>
               <td>
                 <div class="bs-component table-commands">

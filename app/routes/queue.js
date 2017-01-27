@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
    model: function () {
      return Ember.RSVP.hash({
-       unjudged: this.store.query('video', { status: -1 })
+       unjudged: this.store.query('video', { status: 'pending' })
      });
    },
 
@@ -17,14 +17,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
    actions: {
      approveVideo: function(video) {
        var _this = this;
-       video.set('status', 1);
+      //  video.setProperties({ 'status': 'approved', 'approved': true, 'approved_at': true });
+       video.set('status', 'approved');
+       video.set('approved', true);
+       video.set('approved_at', new Date());
+       console.log(video.get('status'));
        video.save().then(function() {
          _this.refresh();
        });
      },
      rejectVideo: function(video) {
        var _this = this;
-       video.set('status', 0);
+      //  video.setProperties({ 'status': 'rejected', 'approved': false });
+       video.set('status', 'rejected');
+       video.set('approved', false);
+       console.log(video.get('status'));
        video.save().then(function() {
          _this.refresh();
        });

@@ -8,13 +8,33 @@ module.exports = function(app) {
 
   videosRouter.get('/', function(req, res) {
     if (req.query.status) {
-      var list = _.where(videos, { status: parseInt(req.query.status) });
+      var list = _.where(videos, { status: req.query.status });
+      // res.send({
+      //   'videos': list
+      // });
       res.send({
-        'videos': list
+        data: list,
+        paginator: {
+          "limit": 10,
+          "page": 1,
+          "total": 1,
+          "count": list.length,
+          "num_pages": 1
+        }
       });
     } else {
+      // res.send({
+      //   'videos': videos
+      // });
       res.send({
-        'videos': videos
+        data: videos,
+        paginator: {
+          "limit": 10,
+          "page": 1,
+          "total": 1,
+          "count": videos.length,
+          "num_pages": 1
+        }
       });
     }
   });
@@ -39,13 +59,13 @@ module.exports = function(app) {
 
   videosRouter.put('/:id', function(req, res) {
     var editedVideo = req.body.video;
-    editedVideo.id = req.params.id;
+    editedVideo._id = req.params.id;
     for (var i = 0; i < videos.length; i++) {
-      if (videos[i]['id'] == req.params.id) {
+      if (videos[i]['_id'] == req.params.id) {
           videos[i] = editedVideo
           res.send({
-            'videos': {
-              id: req.params.id
+            data: {
+              _id: req.params.id
             }
           });
       } else if (videos.length-1) {

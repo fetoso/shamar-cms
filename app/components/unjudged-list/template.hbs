@@ -8,14 +8,14 @@
           </div>
           <div class="col-xs-6 col-sm-7">
             <div class="user-name">
-              {{item.user.name}} {{item.user.lastname}}
+              {{item.owner.first_name}} {{item.owner.last_name}}
             </div>
             <div class="user-location">
-              {{item.name}}
+              {{item.original_name}}
             </div>
           </div>
           <div class="col-xs-3 col-sm-3 video-ts">
-            <div>{{moment-from-now item.uploaded hideSuffix=true}}<span>Ago</span></div>
+            <div>{{moment-from-now item.updated_at hideSuffix=true}}<span>Ago</span></div>
           </div>
         </div>
       </div>

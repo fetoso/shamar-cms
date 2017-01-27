@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.query('video', { status: 1 });
+    return this.store.query('video', { status: 'approved' });
   },
 
 

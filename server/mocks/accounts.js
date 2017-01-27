@@ -3,18 +3,28 @@ module.exports = function(app) {
   var express = require('express');
   var users = require('../db.js').User;
   var _ = require('underscore');
-  var tokensRouter = express.Router();
+  var accountsRouter = express.Router();
   var jwt = require('jsonwebtoken');
 
-  var admins = _.where(users, { role: 0 });
+  var admins = _.where(users, { "is_admin": true });
 
-  tokensRouter.get('/', function(req, res) {
+  accountsRouter.get('/', function(req, res) {
     res.send({
-      'tokens': []
+      'accounts': []
     });
   });
 
-  tokensRouter.post('/login', function(req, res) {
+  accountsRouter.post('/signup', function(req, res) {
+    var newUser = req.body.user;
+    var newId = users.length;
+    newUser.id = newId;
+    users.push(newUser)
+    res.send({
+      data: newUser
+    });
+  });
+
+  accountsRouter.post('/login', function(req, res) {
     for (var i = 0; i < admins.length; i++) {
       if (req.body.email === admins[i].email && req.body.password === admins[i].password) {
           var token;
@@ -36,23 +46,23 @@ module.exports = function(app) {
     }
   });
 
-  tokensRouter.get('/:id', function(req, res) {
+  accountsRouter.get('/:id', function(req, res) {
     res.send({
-      'tokens': {
+      'accounts': {
         id: req.params.id
       }
     });
   });
 
-  tokensRouter.put('/:id', function(req, res) {
+  accountsRouter.put('/:id', function(req, res) {
     res.send({
-      'tokens': {
+      'accounts': {
         id: req.params.id
       }
     });
   });
 
-  tokensRouter.delete('/:id', function(req, res) {
+  accountsRouter.delete('/:id', function(req, res) {
     res.status(204).end();
   });
 
@@ -65,6 +75,6 @@ module.exports = function(app) {
   // After installing, you need to `use` the body-parser for
   // this mock uncommenting the following line:
   //
-  //app.use('/api/tokens', require('body-parser').json());
-  app.use('/api/accounts', tokensRouter);
+  //app.use('/api/accounts', require('body-parser').json());
+  app.use('/api/accounts', accountsRouter);
 };

@@ -6,7 +6,14 @@ module.exports = function(app) {
 
   usersRouter.get('/', function(req, res) {
     res.send({
-      'users': users
+      data: users,
+      paginator: {
+        "limit": 10,
+        "page": 1,
+        "total": 1,
+        "count": users.length,
+        "num_pages": 1
+      }
     });
   });
 
@@ -16,13 +23,13 @@ module.exports = function(app) {
     newUser.id = newId;
     users.push(newUser)
     res.send({
-      user: newUser
+      data: newUser
     });
   });
 
   usersRouter.get('/:id', function(req, res) {
     res.send({
-      'users': {
+      'data': {
         id: req.params.id
       }
     });
