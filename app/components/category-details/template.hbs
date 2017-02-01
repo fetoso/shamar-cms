@@ -12,7 +12,12 @@
             </div>
             <div class="form-group">
               <div class="col-lg-12">
-                {{input class="form-control" placeholder="Active Status" value=item.is_active}}
+                <div class="select-container">
+                  {{#x-select class="form-control" value=item.is_active action='selectActiveStatus' as |xs|}}
+                    {{#xs.option value=false}}Inactive{{/xs.option}}
+                    {{#xs.option value=true}}Active{{/xs.option}}
+                  {{/x-select}}
+                </div>
               </div>
             </div>
 

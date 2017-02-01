@@ -5,7 +5,6 @@ const { isEmpty } = Ember;
 
 export default OAuth2PasswordGrantAuthenticator.extend({
   authorize(data, block) {
-    console.log('supa');
     const { token }  = data.data;
     if (!isEmpty(token)) {
       block('Authorization', `JWT ${token}`);

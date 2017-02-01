@@ -24,30 +24,30 @@ module.exports = function(app) {
   categoriesRouter.post('/', function(req, res) {
     var newCategory = req.body.category;
     var newId = categories.length;
-    newCategory.id = newId;
+    newCategory._id = newId;
     categories.push(newCategory)
     res.send({
-      category: newCategory
+      data: newCategory
     });
   });
 
   categoriesRouter.get('/:id', function(req, res) {
     res.send({
-      'categories': {
-        id: req.params.id
+      data: {
+        _id: req.params.id
       }
     });
   });
 
   categoriesRouter.put('/:id', function(req, res) {
     var editedCategory = req.body.category;
-    editedCategory.id = req.params.id;
+    editedCategory._id = req.params.id;
     for (var i = 0; i < categories.length; i++) {
-      if (categories[i]['id'] == req.params.id) {
+      if (categories[i]['_id'] == req.params.id) {
           categories[i] = editedCategory
           res.send({
-            'categories': {
-              id: req.params.id
+            data: {
+              _id: req.params.id
             }
           });
       } else if (categories.length-1) {
@@ -59,7 +59,7 @@ module.exports = function(app) {
   categoriesRouter.delete('/:id', function(req, res) {
     var categoryId = req.param('id');
     for (var i = 0; i < categories.length; i++) {
-      if (parseInt(categoryId) === categories[i].id) {
+      if (parseInt(categoryId) === categories[i]._id) {
         categories.splice(i, 1);
         break;
       }

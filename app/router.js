@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('users', function() {
     this.route('new');
     this.route('user', { path: ':user_id' }); // users/3
+    this.route('videos');
   });
   this.route('videos', function() {
     this.route('rejected', function() {
@@ -30,6 +31,9 @@ Router.map(function() {
   });
   this.route('queue', {path: '/'});
   this.route('login');
+  this.route('contents', function() {
+    this.route('content');
+  });
 });
 
 export default Router;

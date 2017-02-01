@@ -54,19 +54,42 @@ module.exports = function(environment) {
     };
   }
 
+  if (environment === 'localdev') {
+    ENV.APP.usingCors = true;
+		ENV.APP.corsWithCreds = true;
+		ENV.APP.apiURL = 'http://localhost:5000';
+
+    ENV['ember-simple-auth-token'] = {
+      identificationField: 'email',
+      serverTokenEndpoint: ENV.APP.apiURL + '/api/accounts/login'
+    };
+  }
+
+
   if (environment === 'test') {
+    ENV.APP.usingCors = true;
+		ENV.APP.corsWithCreds = true;
+    ENV.APP.apiURL = 'http://localhost:5000';
     // Testem prefers this...
-    ENV.locationType = 'none';
+    // ENV.locationType = 'none';
 
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+    // ENV.APP.LOG_ACTIVE_GENERATION = false;
+    // ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    // ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {
+    ENV.locationType = 'hash';
+    ENV.APP.usingCors = true;
+		ENV.APP.corsWithCreds = true;
+		ENV.APP.apiURL = 'http://shamar-dev.us-east-1.elasticbeanstalk.com';
 
+    ENV['ember-simple-auth-token'] = {
+      identificationField: 'email',
+      serverTokenEndpoint: ENV.APP.apiURL + '/api/accounts/login'
+    };
   }
 
   return ENV;

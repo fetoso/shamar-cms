@@ -5,7 +5,6 @@ const { isEmpty } = Ember;
 
 export default OAuth2Bearer.extend({
   authorize(data, block) {
-    console.log('sup');
     const { token }  = data.data;
     if (!isEmpty(token)) {
       block('Authorization', `JWT ${token}`);
