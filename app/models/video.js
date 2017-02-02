@@ -5,6 +5,7 @@ export default DS.Model.extend({
   original_name: DS.attr('string'),
   status: DS.attr('string'),
   type: DS.attr('string'),
+  key: DS.attr('number'),
   shamars: DS.attr('number'),
   owner: DS.attr(),
   approved: DS.attr('boolean'),

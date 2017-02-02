@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
@@ -10,7 +11,7 @@ export default DS.RESTSerializer.extend({
 
     return this._super(store, primaryModelClass, payload, id, requestType);
   },
-  serialize(snapshot, options) {
+  serialize() {
     var json = this._super(...arguments);
 
     delete json.__v;

@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     setupController: function(controller, model) {
       controller.set('video', model);
-      this.store.findAll('category').then(function(categories) {
+      this.store.query('categories', { is_active: true }).then(function(categories) {
         controller.set('categories', categories);
       });
     },
