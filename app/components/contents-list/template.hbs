@@ -4,9 +4,9 @@
         <thead>
           <tr>
             <!-- <th class='hidden-xs'>#</th> -->
-            <th>Name</th>
-            <th class='hidden-xs'>User Name</th>
-            <th class='hidden-xs'>Status</th>
+            <th>Title</th>
+            <th class='hidden-xs'>Notify</th>
+            <th class='hidden-xs'>Active</th>
             <th>Controls</th>
           </tr>
         </thead>
@@ -14,14 +14,14 @@
           {{#each items as |item|}}
             <tr>
               <!-- <td class='hidden-xs'>{{item.id}}</td> -->
-              <td><a href="#" data-toggle="modal" data-target="#modal{{item.id}}">{{item.original_name}}</a></td>
-              <td class='hidden-xs'>{{item.owner.first_name}} {{item.owner.last_name}}</td>
-              <td class='hidden-xs'>{{item.status}}</td>
+              <td><a href="#" data-toggle="modal" data-target="#modal{{item.id}}">{{item.title}}</a></td>
+              <td class='hidden-xs'>{{item.notify}}</td>
+              <td class='hidden-xs'>{{item.is_active}}</td>
               <td>
                 <div class="bs-component table-commands">
                   <div class="btn-group btn-group-justified">
-                    {{#link-to 'videos.all.video' item class="btn btn-default send" }}EDIT{{/link-to}}
-                    <a href="#" class="btn btn-default cancel" {{action 'deleteVideo' item}}>DELETE</a>
+                    {{#link-to 'contents.content' item class="btn btn-default send" }}EDIT{{/link-to}}
+                    <a href="#" class="btn btn-default cancel" {{action 'deleteContent' item}}>DELETE</a>
                   </div>
                 </div>
               </td>
@@ -35,7 +35,8 @@
 <div class="modal fade" id="modal{{item.id}}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <video width="100%" controls>
-      <source src="https://s3.amazonaws.com/shamar-videos/{{item.key}}.{{item.type}}" type="video/{{item.type}}">
+      <!-- <source src="https://s3.amazonaws.com/shamar-videos/{{item.key}}.{{item.type}}" type="video/{{item.type}}"> -->
+      <source src="{{item.video_url}}" type="video/{{item.type}}">
       Your browser does not support the video tag.
     </video>
     <div class="bs-component table-commands">

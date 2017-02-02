@@ -1,1 +1,15 @@
-{{outlet}}
+{{#site-container session=session title="Contents" action='logout'}}
+  {{outlet}}
+  <div class="col-md-10 col-sm-12 col-centered">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <div class="pull-right">
+              <div class="btn-group">
+                  {{#link-to 'contents.new' class="btn btn-filter" }}NEW{{/link-to}}
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  {{contents-list items=contents action='deleteContent'}}
+{{/site-container}}

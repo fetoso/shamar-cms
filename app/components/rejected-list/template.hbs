@@ -21,7 +21,7 @@
                 <div class="bs-component table-commands">
                   <div class="btn-group btn-group-justified">
                     {{#link-to 'videos.rejected.video' item class="btn btn-default send" }}EDIT{{/link-to}}
-                    <!-- <a href="#" class="btn btn-default cancel">DELETE</a> -->
+                    <a href="#" class="btn btn-default cancel" {{action 'deleteVideo' item}}>DELETE</a>
                   </div>
                 </div>
               </td>
@@ -35,7 +35,7 @@
 <div class="modal fade" id="modal{{item.id}}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <video width="100%" controls>
-      <source src="{{item.video_url}}" type="video/webm">
+      <source src="https://s3.amazonaws.com/shamar-videos/{{item.key}}.{{item.type}}" type="video/{{item.type}}">
       Your browser does not support the video tag.
     </video>
     <div class="bs-component table-commands">

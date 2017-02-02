@@ -33,6 +33,7 @@ Router.map(function() {
   this.route('login');
   this.route('contents', function() {
     this.route('content');
+    this.route('new');
   });
 });
 
