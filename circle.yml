@@ -9,8 +9,8 @@ dependencies:
     - npm i
     - bower i
 test:
-  pre:
-    - npm rebuild node-sass
+ override:
+    - echo "test"
 deployment:
   development:
     branch: development
