@@ -6,6 +6,8 @@
             <!-- <th class='hidden-xs'>#</th> -->
             <th>Name</th>
             <th class='hidden-xs'>User Name</th>
+            <th class='hidden-xs'>Category</th>
+            <th class='hidden-xs'>Shamars</th>
             <th class='hidden-xs'>Status</th>
             <th>Controls</th>
           </tr>
@@ -16,6 +18,8 @@
               <!-- <td class='hidden-xs'>{{item.id}}</td> -->
               <td><a href="#" data-toggle="modal" data-target="#modal{{item.id}}">{{item.original_name}}</a></td>
               <td class='hidden-xs'>{{item.owner.first_name}} {{item.owner.last_name}}</td>
+              <td class='hidden-xs'>{{item.category.name}}</td>
+              <td class='hidden-xs'>{{item.shamars}}</td>
               <td class='hidden-xs'>{{item.status}}</td>
               <td>
                 <div class="bs-component table-commands">
@@ -38,6 +42,81 @@
       <source src="https://s3.amazonaws.com/shamar-videos/{{item.key}}.{{item.type}}" type="video/{{item.type}}">
       Your browser does not support the video tag.
     </video>
+    <style media="screen">
+      .data-pane {
+        background-color: rgba(0, 0, 0, 0.9);
+        margin: 5px;
+        padding:10px;
+      }
+      .data-pane p {
+        color:#fff;
+      }
+    </style>
+    <div class="col-sm-6">
+      <div class="data-pane">
+        <p>
+          location:<br>
+          {{item.localion}}
+        </p>
+        <p>
+          original_name:<br>
+          {{item.original_name}}
+        </p>
+        <p>
+          status:<br>
+          {{item.status}}
+        </p>
+        <p>
+          type:<br>
+          {{item.type}}
+        </p>
+        <p>
+          key:<br>
+          {{item.key}}
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="data-pane">
+        <p>
+          shamars:<br>
+          {{item.shamars}}
+        </p>
+        <p>
+          owner:<br>
+          {{item.owner.first_name}} {{item.owner.last_name}}
+        </p>
+        <p>
+          approved:<br>
+          {{item.approved}}
+        </p>
+
+        <p>
+          category:<br>
+          {{item.category.name}}
+        </p>
+        <p>
+          __v:<br>
+          {{item.__v}}
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="data-pane">
+        <p>
+          approved_at:<br>
+          {{item.approved_at}}
+        </p>
+        <p>
+          created_at:<br>
+          {{item.created_at}}
+        </p>
+        <p>
+          updated_at:<br>
+          {{item.updated_at}}
+        </p>
+      </div>
+    </div>
     <div class="bs-component table-commands">
       <div class="btn-group btn-group-justified">
         <a href="#" class="btn btn-default cancel" data-dismiss="modal">CLOSE</a>

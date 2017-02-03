@@ -28,6 +28,8 @@ export default DS.RESTSerializer.extend({
     return json;
   },
   serializeIntoHash: function(hash, type, record, options) {
-    Ember.merge(hash, this.serialize(record, options));
+    var payload = this.serialize(record, options);
+    console.log('data:', hash, payload);
+    Ember.merge(hash, payload);
   }
 });
