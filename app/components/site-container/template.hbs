@@ -23,6 +23,17 @@
     </div>
   </div>
 </div>
+<style media="screen">
+  .logo {
+    z-index: 200;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+  }
+</style>
+<div class="logo">
+  <img src="{{rootURL}}assets/img/logo.png" alt="">
+</div>
 <div class="container" id="main-container">
   <div class="row">
     {{yield}}

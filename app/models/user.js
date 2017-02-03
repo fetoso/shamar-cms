@@ -11,8 +11,12 @@ export default DS.Model.extend({
   country: DS.attr('string'),
   phone: DS.attr('string'),
   birthdate: DS.attr('date'),
+  shamars: DS.attr('number'),
+  avatar: DS.attr(),
   __v: DS.attr('number'),
   verified: DS.attr('boolean'),
   is_admin: DS.attr('boolean'),
   is_banned: DS.attr('boolean'),
+  created_at: DS.attr('date'),
+  updated_at: DS.attr('date'),
 });

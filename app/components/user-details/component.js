@@ -8,11 +8,17 @@ export default Ember.Component.extend({
     selectRole: function(value) {
       this.set('item.role', value);
     },
-    selectCity: function(value) {
-      this.set('item.city', value);
+    selectState: function(value) {
+      this.set('item.state', value);
     },
     selectCountry: function(value) {
       this.set('item.country', value);
+    },
+    selectVerified: function(value) {
+      this.set('item.verified', value);
+    },
+    selectBan: function(value) {
+      this.set('item.is_banned', value);
     }
   }
 });

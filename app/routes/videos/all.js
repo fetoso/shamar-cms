@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.findAll('video');
+    return this.store.query('video', { orderBy: 'created_at' });
   },
   actions: {
     deleteVideo: function(video) {

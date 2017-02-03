@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
    model: function () {
      return Ember.RSVP.hash({
-       unjudged: this.store.query('video', { status: 'pending' })
+       unjudged: this.store.query('video', { status: 'pending', orderBy: 'created_at' })
      });
    },
 

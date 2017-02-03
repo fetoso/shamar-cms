@@ -17,9 +17,16 @@ export default DS.RESTSerializer.extend({
     delete json.__v;
     delete json.updated_at;
     delete json.created_at;
-    // if(json.videos) {
-    //   delete json.videos;
-    // }
+    delete json.password;
+
+    // temp
+    delete json.state;
+    delete json.country;
+    //
+
+    if(json.videos) {
+      delete json.videos;
+    }
 
     return json;
   },
