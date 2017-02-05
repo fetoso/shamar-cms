@@ -14,8 +14,8 @@ export default Ember.Route.extend({
     actions: {
         authenticate: function(credentials) {
           var _this = this;
-          var authenticator = 'authenticator:token';
-          this.get('session').authenticate(authenticator, credentials).then(function() {
+          var authenticator = 'authenticator:oauth2';
+          this.get('session').authenticate(authenticator, credentials.get('identification'), credentials.get('password')).then(function() {
             _this.transitionTo('queue');
           });
         }

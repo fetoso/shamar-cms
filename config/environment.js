@@ -35,6 +35,7 @@ module.exports = function(environment) {
     serverTokenEndpoint: '/api/accounts/login',
     authorizationPrefix: 'JWT ',
     authorizationHeaderName: 'Authorization',
+    tokenPropertyName: 'data',
   };
 
   if (environment === 'development') {
