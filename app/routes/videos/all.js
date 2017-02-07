@@ -1,8 +1,11 @@
 import Ember from 'ember';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default Ember.Route.extend({
-  model: function() {
-    return this.store.query('video', { orderBy: 'created_at' });
+export default Ember.Route.extend(RouteMixin, {
+  model: function(params) {
+    params.orderBy = 'created_at';
+    return this.findPaged('video', params);
+    // return this.store.query('video', { orderBy: 'created_at' });
   },
   actions: {
     deleteVideo: function(video) {

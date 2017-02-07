@@ -4,10 +4,19 @@ import DS from 'ember-data';
 export default DS.RESTSerializer.extend({
   primaryKey: '_id',
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    payload = {
-      categories: payload.data,
-      // pagination: payload.pagination
-    };
+    if (payload.paginator) {
+      payload = {
+        categories: payload.data,
+        meta: payload.paginator
+      };
+      payload.meta.total_pages = payload.meta.num_pages;
+      payload.meta.totalPages = payload.meta.num_pages;
+    } else {
+      payload.data._id = id;
+      payload = {
+        categories: payload.data,
+      };
+    }
 
     return this._super(store, primaryModelClass, payload, id, requestType);
   },

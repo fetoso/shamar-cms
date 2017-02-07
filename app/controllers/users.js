@@ -1,15 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  // session: Ember.inject.service('session'),
+  // queryParams: ["page", "perPage"],
   //
-  // actions: {
-  //   logout: function() {
-  //     var _this = this;
-  //     this.get('session').invalidate().then(function() {
-  //         _this.transitionTo('login');
-  //     });
-  //   }
-  // }
-
+  // perPage: Ember.computed.alias("limit"),
+  // totalPages: Ember.computed.alias("num_pages"),
+  // page: 1,
+  // perPage: 10,
 });

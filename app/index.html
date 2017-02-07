@@ -15,6 +15,46 @@
     {{content-for "head-footer"}}
   </head>
   <body>
+    <style media="screen">
+      .pagination a {
+        background-color: #000;
+        border: 1px solid #fff;
+      }
+      .pagination .page-number a {
+        margin-right: 15px;
+        background-color: #000 !important;
+        border: 1px solid #fff !important;
+        color: #fff;
+      }
+      .pagination .page-number a:hover,
+      .pagination .page-number a:focus,
+      .pagination .prev a:hover,
+      .pagination .prev a:focus,
+      .pagination .next a:hover,
+      .pagination .next a:focus {
+        color: #ffad1b;
+      }
+      .pagination .page-number.active a {
+        color: #000;
+        background-color: #ffad1b !important;
+        border: 1px solid #ffad1b !important;
+      }
+      .pagination .prev a {
+        color: #fff;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        margin-right: 15px;
+        background-color: #000 !important;
+        border: 1px solid #fff !important;
+      }
+      .pagination .next a {
+        color: #fff;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        background-color: #000 !important;
+        border: 1px solid #fff !important;
+      }
+    </style>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>

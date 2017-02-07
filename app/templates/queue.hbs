@@ -1,4 +1,7 @@
 {{#site-container session=session title="Queue" action='logout'}}
   {{outlet}}
   {{unjudged-list items=unjudged approve='approveVideo' reject='rejectVideo'}}
+  <div class="col-md-10 col-sm-12 col-centered">
+    {{page-numbers content=unjudged}}
+  </div>
 {{/site-container}}

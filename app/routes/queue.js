@@ -1,16 +1,20 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
+export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
-
-   model: function () {
+   model: function (params) {
+     params.orderBy = 'created_at';
+     params.status = 'pending';
      return Ember.RSVP.hash({
-       unjudged: this.store.query('video', { status: 'pending', orderBy: 'created_at' })
+       unjudged: this.findPaged('video', params) // this.store.query('video', { status: 'pending', orderBy: 'created_at' })
      });
    },
 
    setupController: function(controller, models) {
+     controller.set('content', models.unjudged.get('meta'));
+     controller.set('meta', models.unjudged.get('meta'));
      return controller.setProperties(models);
    },
    session: Ember.inject.service('session'),
@@ -21,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
        video.set('status', 'approved');
        video.set('approved', true);
        video.set('approved_at', new Date());
-       console.log(video.get('status'));
+
        video.save().then(function() {
          _this.refresh();
        });

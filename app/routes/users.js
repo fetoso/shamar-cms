@@ -1,15 +1,21 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-  model: function () {
+export default Ember.Route.extend(RouteMixin, AuthenticatedRouteMixin, {
+
+  model: function (params) {
+    params.orderBy = 'created_at';
+
     return Ember.RSVP.hash({
-      users: this.store.findAll('user')
+      users: this.findPaged('user', params), // this.store.findAll('user')\
     });
   },
 
   setupController: function(controller, models) {
+    controller.set('content', models.users.get('meta'));
+    controller.set('meta', models.users.get('meta'));
     return controller.setProperties(models);
   },
   session: Ember.inject.service('session'),

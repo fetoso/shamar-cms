@@ -33,7 +33,7 @@ export default OAuth2PasswordGrant.extend({
             token: response.data.token
           });
         });
-      }, function(xhr, status, error) {
+      }, function(xhr) {
         var response = xhr.responseText;
         Ember.run(function(){
           reject(response);
