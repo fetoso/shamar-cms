@@ -12,7 +12,8 @@ export default DS.RESTSerializer.extend({
       payload.meta.total_pages = payload.meta.num_pages;
       payload.meta.totalPages = payload.meta.num_pages;
     } else {
-      payload.data._id = id;
+      // payload.data._id = id;
+      // payload.data.id = id;
       payload = {
         contents: payload.data,
       };

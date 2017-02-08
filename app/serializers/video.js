@@ -13,6 +13,7 @@ export default DS.RESTSerializer.extend({
       payload.meta.totalPages = payload.meta.num_pages;
     } else {
       // payload.data._id = id;
+      // payload.data.id = id;
       payload = {
         videos: payload.data,
       };

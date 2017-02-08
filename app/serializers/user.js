@@ -15,6 +15,7 @@ export default DS.RESTSerializer.extend({
       payload.meta.perPage = payload.meta.limit;
     } else {
       payload.data._id = id;
+      payload.data.id = id;
       payload = {
         users: payload.data,
       };
