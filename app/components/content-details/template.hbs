@@ -1,1 +1,74 @@
-{{yield}}
+<div class="row" style='position: absolute;left:0; width: 100%; height: 100%; margin:0;padding:0;background-color:rgba(0,0,0,.8);z-index:10;'>
+    <div class="col-lg-5 col-md-8 col-sm-12 col-centered">
+
+
+      <div class="well bs-component shamar-form">
+        <form class="form-horizontal" {{action 'submit' on='submit'}}>
+          <fieldset>
+            <legend>New Content</legend>
+            {{#if item.uploadzone}}
+              <div class="form-group ">
+                <div class="col-lg-12">
+                  {{#file-picker fileLoaded="fileLoaded"}}
+                      Drag here or click to upload a file
+                  {{/file-picker}}
+                </div>
+              </div>
+            {{/if}}
+            <div class="form-group input-zone">
+              <div class="col-lg-12">
+                {{input class="form-control" placeholder="Video Url" value=item.video_url disabled='entryNotAllowed' required='required'}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                {{input class="form-control" placeholder="Title" value=item.title}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                {{textarea class="form-control" placeholder="Body" value=item.body rows='6'}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <div class="select-container">
+                  {{#x-select class="form-control" value=item.notify action='selectNotify' as |xs|}}
+                    {{#xs.option value=false}}Silent{{/xs.option}}
+                    {{#xs.option value=true}}Notification{{/xs.option}}
+                  {{/x-select}}
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <div class="select-container">
+                  {{#x-select class="form-control" value=item.is_active action='selectActive' as |xs|}}
+                    {{#xs.option value=false}}Inactive{{/xs.option}}
+                    {{#xs.option value=true}}Active{{/xs.option}}
+                  {{/x-select}}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <div class="bs-component form-commands">
+                  <div class="btn-group btn-group-justified">
+                    <style media="screen">
+                      .btn.btn-default.cancel.modal-button {
+                        width: 50%;
+                      }
+                    </style>
+                    {{#link-to 'contents' class="btn btn-default cancel modal-button"}}CANCEL{{/link-to}}
+                    <button type="submit" class="btn btn-default send modal-button" style="width: 100%">SUBMIT</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+    </div>
+</div>

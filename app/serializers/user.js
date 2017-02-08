@@ -4,7 +4,7 @@ import DS from 'ember-data';
 export default DS.RESTSerializer.extend({
   primaryKey: '_id',
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    console.log(requestType, id);
+
     if (payload.paginator) {
       payload = {
         users: payload.data,
@@ -33,8 +33,8 @@ export default DS.RESTSerializer.extend({
     delete json.password;
 
     // temp
-    delete json.state;
-    delete json.country;
+    // delete json.state;
+    // delete json.country;
     //
 
     if(json.videos) {

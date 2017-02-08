@@ -40,7 +40,7 @@ export default DS.RESTSerializer.extend({
   },
   serializeIntoHash: function(hash, type, record, options) {
     var payload = this.serialize(record, options);
-    console.log('data:', hash, payload);
+    
     Ember.merge(hash, payload);
   }
 });
