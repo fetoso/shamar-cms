@@ -6,12 +6,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   namespace: 'api',
   authorizer: 'authorizer:oauth2',
   host: config.APP.apiURL,
-  // pathForType: function(type) {
-  //   console.log(type);
-  //   return type;
-  // }
+  urlForCreateRecord(modelName, snapshot) {
+    return `${config.APP.apiURL}/${this.namespace}/accounts/signup`;
+  }
 });
-
-// export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
-//   authorizer: 'authorizer:token' //or authorizer: 'authorizer:jwt'
-// });

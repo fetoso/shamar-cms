@@ -34,13 +34,13 @@ export default Ember.Component.extend({
             const xhr = new XMLHttpRequest();
             xhr.open('PUT', response.data.signedRequest);
             xhr.setRequestHeader("Content-Type", "mp4");
-            xhr.onprogress = function (evt){
-               if (evt.lengthComputable) {
-                 var percentComplete = (evt.loaded / evt.total)*100;
-
-                //  $('#progressbar').progressbar( "option", "value", percentComplete );
-               }
-            };
+            // xhr.onprogress = function (evt){
+            //    if (evt.lengthComputable) {
+            //      var percentComplete = (evt.loaded / evt.total)*100;
+            //
+            //     //  $('#progressbar').progressbar( "option", "value", percentComplete );
+            //    }
+            // };
             xhr.onreadystatechange = () => {
               if(xhr.readyState === 4){
                 if(xhr.status === 200){
@@ -55,7 +55,7 @@ export default Ember.Component.extend({
           })
           .catch(function (response, jqXHR) {
             alert('Could not upload file.');
-            console.log(response, jqXHR)
+            console.log(response, jqXHR);
           });
     }
   }

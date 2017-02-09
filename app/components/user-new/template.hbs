@@ -7,30 +7,45 @@
           <legend>New User</legend>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Name" value=item.first_name}}
+              {{input class="form-control" placeholder="Name *" value=item.first_name}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Last Name" value=item.last_name}}
+              {{input class="form-control" placeholder="Last Name *" value=item.last_name}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Email" value=item.email}}
+              {{input class="form-control" placeholder="Email *" value=item.email}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Telephone" value=item.phone}}
+              {{input class="form-control" placeholder="Password *" value=item.password}}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              {{input class="form-control" placeholder="Confirm Password *" value=item.confirmPassword}}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              {{input class="form-control" placeholder="Shamars" value=item.shamars}}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              {{input class="form-control" placeholder="City" value=item.city}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
                 {{#x-select class="form-control" value=item.country action='selectCountry' as |xs|}}
-                  {{#xs.option value='PR'}}Puerto Rico{{/xs.option}}
-                  {{#xs.option value='USA'}}United States{{/xs.option}}
+                  {{#xs.option value='Puerto Rico'}}Puerto Rico{{/xs.option}}
+                  {{#xs.option value='USA'}}USA{{/xs.option}}
                 {{/x-select}}
               </div>
             </div>
@@ -38,9 +53,65 @@
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.city action='selectCity' as |xs|}}
-                  {{#xs.option value='San Juan'}}San Juan{{/xs.option}}
-                  {{#xs.option value='Ponce'}}Ponce{{/xs.option}}
+                {{#x-select class="form-control" value=item.state action='selectState' as |xs|}}
+                  {{#xs.option value='Puerto Rico' }}Puerto Rico{{/xs.option}}
+                  {{#xs.option value='Alabama' }}Alabama{{/xs.option}}
+                  {{#xs.option value='Alaska' }}Alaska{{/xs.option}}
+                  {{#xs.option value='Arizona' }}Arizona{{/xs.option}}
+                  {{#xs.option value='Arkansas' }}Arkansas{{/xs.option}}
+                  {{#xs.option value='California' }}California{{/xs.option}}
+                  {{#xs.option value='Colorado' }}Colorado{{/xs.option}}
+                  {{#xs.option value='Connecticut' }}Connecticut{{/xs.option}}
+                  {{#xs.option value='Delaware' }}Delaware{{/xs.option}}
+                  {{#xs.option value='District Of Columbia' }}District Of Columbia{{/xs.option}}
+                  {{#xs.option value='Florida' }}Florida{{/xs.option}}
+                  {{#xs.option value='Georgia' }}Georgia{{/xs.option}}
+                  {{#xs.option value='Hawaii' }}Hawaii{{/xs.option}}
+                  {{#xs.option value='Idaho' }}Idaho{{/xs.option}}
+                  {{#xs.option value='Illinois' }}Illinois{{/xs.option}}
+                  {{#xs.option value='Indiana' }}Indiana{{/xs.option}}
+                  {{#xs.option value='Iowa' }}Iowa{{/xs.option}}
+                  {{#xs.option value='Kansas' }}Kansas{{/xs.option}}
+                  {{#xs.option value='Kentucky' }}Kentucky{{/xs.option}}
+                  {{#xs.option value='Louisiana' }}Louisiana{{/xs.option}}
+                  {{#xs.option value='Maine' }}Maine{{/xs.option}}
+                  {{#xs.option value='Maryland' }}Maryland{{/xs.option}}
+                  {{#xs.option value='Massachusetts' }}Massachusetts{{/xs.option}}
+                  {{#xs.option value='Michigan' }}Michigan{{/xs.option}}
+                  {{#xs.option value='Minnesota' }}Minnesota{{/xs.option}}
+                  {{#xs.option value='Mississippi' }}Mississippi{{/xs.option}}
+                  {{#xs.option value='Missouri' }}Missouri{{/xs.option}}
+                  {{#xs.option value='Montana' }}Montana{{/xs.option}}
+                  {{#xs.option value='Nebraska' }}Nebraska{{/xs.option}}
+                  {{#xs.option value='Nevada' }}Nevada{{/xs.option}}
+                  {{#xs.option value='New Hampshire' }}New Hampshire{{/xs.option}}
+                  {{#xs.option value='New Jersey' }}New Jersey{{/xs.option}}
+                  {{#xs.option value='New Mexico' }}New Mexico{{/xs.option}}
+                  {{#xs.option value='New York' }}New York{{/xs.option}}
+                  {{#xs.option value='North Carolina' }}North Carolina{{/xs.option}}
+                  {{#xs.option value='North Dakota' }}North Dakota{{/xs.option}}
+                  {{#xs.option value='Ohio' }}Ohio{{/xs.option}}
+                  {{#xs.option value='Oklahoma' }}Oklahoma{{/xs.option}}
+                  {{#xs.option value='Oregon' }}Oregon{{/xs.option}}
+                  {{#xs.option value='Pennsylvania' }}Pennsylvania{{/xs.option}}
+                  {{#xs.option value='Rhode Island' }}Rhode Island{{/xs.option}}
+                  {{#xs.option value='South Carolina' }}South Carolina{{/xs.option}}
+                  {{#xs.option value='South Dakota' }}South Dakota{{/xs.option}}
+                  {{#xs.option value='Tennessee' }}Tennessee{{/xs.option}}
+                  {{#xs.option value='Texas' }}Texas{{/xs.option}}
+                  {{#xs.option value='Utah' }}Utah{{/xs.option}}
+                  {{#xs.option value='Vermont' }}Vermont{{/xs.option}}
+                  {{#xs.option value='Virginia' }}Virginia{{/xs.option}}
+                  {{#xs.option value='Washington' }}Washington{{/xs.option}}
+                  {{#xs.option value='West Virginia' }}West Virginia{{/xs.option}}
+                  {{#xs.option value='Wisconsin' }}Wisconsin{{/xs.option}}
+                  {{#xs.option value='Wyoming' }}Wyoming{{/xs.option}}
+                  {{#xs.option value='American Samoa' }}American Samoa{{/xs.option}}
+                  {{#xs.option value='Guam Northern' }}Guam Northern{{/xs.option}}
+                  {{#xs.option value='Mariana Islands' }}Mariana Islands{{/xs.option}}
+                  {{#xs.option value='United States Minor' }}United States Minor{{/xs.option}}
+                  {{#xs.option value='Outlying Islands' }}Outlying Islands{{/xs.option}}
+                  {{#xs.option value='Virgin Islands' }}Virgin Islands{{/xs.option}}
                 {{/x-select}}
               </div>
             </div>
@@ -56,6 +127,26 @@
                 {{#x-select class="form-control" value=item.is_admin action='selectRole' as |xs|}}
                   {{#xs.option value=true}}Admin{{/xs.option}}
                   {{#xs.option value=false}}User{{/xs.option}}
+                {{/x-select}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              <div class="select-container">
+                {{#x-select class="form-control" value=item.is_banned action='selectVerified' as |xs|}}
+                  {{#xs.option value=false}}Unverified{{/xs.option}}
+                  {{#xs.option value=true}}Verified{{/xs.option}}
+                {{/x-select}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-12">
+              <div class="select-container">
+                {{#x-select class="form-control" value=item.is_banned action='selectBan' as |xs|}}
+                  {{#xs.option value=false}}Active{{/xs.option}}
+                  {{#xs.option value=true}}Banned{{/xs.option}}
                 {{/x-select}}
               </div>
             </div>

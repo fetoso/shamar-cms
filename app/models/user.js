@@ -5,6 +5,7 @@ export default DS.Model.extend({
   last_name: DS.attr('string'),
   email: DS.attr('string'),
   password: DS.attr('string'),
+  confirmPassword: DS.attr('string'),
   state: DS.attr('string'),
   city: DS.attr('string'),
   videos: DS.hasMany('video'),

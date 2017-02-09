@@ -59,7 +59,7 @@ export default Ember.Component.extend({
           .catch(function (response, jqXHR) {
             _this.set('uploadzone', true);
             alert('Could not upload file.');
-            console.log(response, jqXHR)
+            console.log(response, jqXHR);
           });
     }
   }
