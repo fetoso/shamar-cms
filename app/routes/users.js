@@ -6,7 +6,7 @@ import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 export default Ember.Route.extend(RouteMixin, AuthenticatedRouteMixin, {
 
   model: function (params) {
-    params.orderBy = 'created_at';
+    params.orderBy = '-shamars';
 
     return Ember.RSVP.hash({
       users: this.findPaged('user', params), // this.store.findAll('user')\
