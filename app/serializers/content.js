@@ -11,11 +11,15 @@ export default DS.RESTSerializer.extend({
       };
       payload.meta.total_pages = payload.meta.num_pages;
       payload.meta.totalPages = payload.meta.num_pages;
-    } else {
+    } else if (payload.data && !payload.paginator) {
       // payload.data._id = id;
       // payload.data.id = id;
       payload = {
         contents: payload.data,
+      };
+    } else {
+      payload = {
+        contents: null,
       };
     }
 

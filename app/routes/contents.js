@@ -4,7 +4,7 @@ import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
     model: function (params) {
-      params.orderBy = 'created_at';
+      params.orderBy = '-created_at';
       return Ember.RSVP.hash({
         contents: this.findPaged('content', params) // this.store.findAll('content')
       });
@@ -19,6 +19,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
       deleteContent: function(content) {
         if (confirm("Are you sure you want to Delete this item?")) {
           var _this = this;
+          
           content.destroyRecord().then(function() {
             _this.transitionTo('contents');
           });

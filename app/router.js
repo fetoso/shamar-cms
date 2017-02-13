@@ -32,7 +32,7 @@ Router.map(function() {
   this.route('queue', {path: '/'});
   this.route('login');
   this.route('contents', function() {
-    this.route('content');
+    this.route('content', { path: ':content_id' });
     this.route('new');
   });
 });
