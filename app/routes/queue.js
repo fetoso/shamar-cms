@@ -5,7 +5,7 @@ import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
 
    model: function (params) {
-     params.orderBy = 'created_at';
+     params.orderBy = '-created_at';
      params.status = 'pending';
      return Ember.RSVP.hash({
        unjudged: this.findPaged('video', params) // this.store.query('video', { status: 'pending', orderBy: 'created_at' })

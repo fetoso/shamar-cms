@@ -4,9 +4,14 @@ import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
 
 export default Ember.Route.extend(RouteMixin, AuthenticatedRouteMixin, {
-
+  queryParams: {
+    orderBy: '-shamars',
+  },
   model: function (params) {
-    params.orderBy = '-shamars';
+
+    if(!params.orderBy) {
+      params.orderBy = '-shamars';
+    }
 
     return Ember.RSVP.hash({
       users: this.findPaged('user', params), // this.store.findAll('user')\
@@ -27,6 +32,10 @@ export default Ember.Route.extend(RouteMixin, AuthenticatedRouteMixin, {
           _this.transitionTo('users');
         });
       }
+    },
+    filterList: function(filter) {
+      this.transitionTo({ queryParams: { orderBy: filter }});
+      this.refresh();
     }
   }
 

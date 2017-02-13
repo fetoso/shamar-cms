@@ -3,9 +3,13 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
-
+  queryParams: {
+    orderBy: '-created_at',
+  },
   model: function (params) {
-    params.orderBy = 'created_at';
+    if(!params.orderBy) {
+      params.orderBy = '-created_at';
+    }
     return Ember.RSVP.hash({
       categories: this.findPaged('category', params) // this.store.findAll('category')
     });
@@ -25,6 +29,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, RouteMixin, {
         });
       }
     },
+    filterList: function(filter) {
+      this.transitionTo({ queryParams: { orderBy: filter }});
+      this.refresh();
+    }
   }
 
 });

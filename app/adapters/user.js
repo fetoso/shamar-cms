@@ -6,7 +6,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   namespace: 'api',
   authorizer: 'authorizer:oauth2',
   host: config.APP.apiURL,
-  urlForCreateRecord(modelName, snapshot) {
+  urlForCreateRecord() {
     return `${config.APP.apiURL}/${this.namespace}/accounts/signup`;
   }
 });

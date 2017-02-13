@@ -2,8 +2,13 @@ import Ember from 'ember';
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
 export default Ember.Route.extend(RouteMixin, {
+  queryParams: {
+    orderBy: '-approved_at',
+  },
   model: function(params) {
-    params.orderBy = 'approved_at';
+    if(!params.orderBy) {
+      params.orderBy = '-approved_at';
+    }
     params.status = 'approved';
     return this.findPaged('video', params);
     // return this.store.query('video', { status: 'approved', orderBy: 'approved_at' });
@@ -17,6 +22,10 @@ export default Ember.Route.extend(RouteMixin, {
         });
       }
     },
+    filterList: function(filter) {
+      this.transitionTo({ queryParams: { orderBy: filter }});
+      this.refresh();
+    }
   }
 
 });

@@ -4,10 +4,10 @@
         <thead>
           <tr>
             <!-- <th class='hidden-xs'>#</th> -->
-            <th>Name</th>
+            <th {{action 'filterList' 'original_name'}} style="cursor: pointer;">Name</th>
             <th class='hidden-xs'>User Name</th>
             <th class='hidden-xs'>Category</th>
-            <th class='hidden-xs'>Shamars</th>
+            <th class='hidden-xs' {{action 'filterList' '-shamars'}} style="cursor: pointer;">Shamars</th>
             <th class='hidden-xs'>Status</th>
             <th>Controls</th>
           </tr>

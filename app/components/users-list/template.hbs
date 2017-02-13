@@ -4,9 +4,9 @@
         <thead>
           <tr>
             <!-- <th class='hidden-xs'></th> -->
-            <th>Name</th>
-            <th class='hidden-xs'>Email</th>
-            <th class='hidden-xs'>Shamars</th>
+            <th {{action 'filterList' 'last_name'}} style="cursor: pointer;">Name</th>
+            <th class='hidden-xs' {{action 'filterList' 'email'}} style="cursor: pointer;">Email</th>
+            <th class='hidden-xs' {{action 'filterList' '-shamars'}} style="cursor: pointer;">Shamars</th>
             <th class='hidden-xs'>Admin</th>
             <th>Controls</th>
           </tr>

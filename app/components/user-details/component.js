@@ -6,7 +6,7 @@ export default Ember.Component.extend({
       this.sendAction('action', this.item);
     },
     selectRole: function(value) {
-      this.set('item.role', value);
+      this.set('item.is_admin', value);
     },
     selectState: function(value) {
       this.set('item.state', value);
