@@ -16,6 +16,7 @@ export default DS.Model.extend({
   avatar: DS.attr(),
   __v: DS.attr('number'),
   verified: DS.attr('boolean'),
+  account_type: DS.attr('string'),
   is_admin: DS.attr('boolean'),
   is_banned: DS.attr('boolean'),
   created_at: DS.attr('date'),

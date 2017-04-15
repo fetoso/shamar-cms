@@ -6,6 +6,7 @@ export default Ember.Route.extend({
       first_name: '',
       last_name: '',
       email: '',
+      account_type: '',
       password: '',
       confirmPassword: ''
     };

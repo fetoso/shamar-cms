@@ -1,16 +1,25 @@
 <div class="row" style='position: absolute;left:0; width: 100%; height: 100%; margin:0;padding:0;background-color:rgba(0,0,0,.8);z-index:10;'>
     <div class="col-lg-5 col-md-8 col-sm-12 col-centered">
 
-
+      <style media="screen">
+        #progress-bar {
+          position: absolute;
+          top:0;
+          height:100%;
+          width:0;
+          background-color: #303030;
+        }
+      </style>
       <div class="well bs-component shamar-form">
         <form class="form-horizontal" {{action 'submit' on='submit'}}>
           <fieldset>
             <legend>New Content</legend>
             <div class="form-group upload-zone">
-              <div class="col-lg-12">
-                {{#file-picker fileLoaded="fileLoaded"}}
+              <div class="col-lg-12 file-picker-container">
+                {{#file-picker fileLoaded="fileLoaded" preview=false}}
                     Drag here or click to upload a file
                 {{/file-picker}}
+                <div id="progress-bar"></div>
               </div>
             </div>
             <div class="form-group input-zone">
