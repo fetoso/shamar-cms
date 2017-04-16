@@ -5,13 +5,14 @@
       <div class="well bs-component shamar-form">
         <form class="form-horizontal" {{action 'submit' on='submit'}}>
           <fieldset>
-            <legend>New Content</legend>
+            <legend>Content Detail</legend>
             {{#if item.uploadzone}}
               <div class="form-group ">
                 <div class="col-lg-12">
-                  {{#file-picker fileLoaded="fileLoaded"}}
+                  {{#file-picker fileLoaded="fileLoaded" preview=false}}
                       Drag here or click to upload a file
                   {{/file-picker}}
+                  <div id="progress-bar"></div>
                 </div>
               </div>
             {{/if}}

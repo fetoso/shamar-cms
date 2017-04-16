@@ -28,6 +28,7 @@ export default OAuth2PasswordGrant.extend({
         contentType: 'application/json'
         // dataType: 'json'
       }).then(function(response){
+        console.log('login response', response);
         Ember.run(function(){
           resolve({
             token: response.data.token

@@ -40,14 +40,11 @@ export default Ember.Component.extend({
             xhr.upload.onprogress = function(evt) {
               if (evt.lengthComputable) {  //evt.loaded the bytes browser receive
                  //evt.total the total bytes seted by the header
-                 //
                 var percentComplete = (evt.loaded / evt.total)*100;
-                console.log(percentComplete);
                 var value = (percentComplete/100)*$('.file-picker-container').width();
-                console.log(value);
                 $('#progress-bar').attr( "style", "width:" + value + "px;" );
               }
-            }
+            };
             xhr.onreadystatechange = () => {
               if(xhr.readyState === 4){
                 if(xhr.status === 200){

@@ -34,13 +34,14 @@ export default Ember.Component.extend({
             const xhr = new XMLHttpRequest();
             xhr.open('PUT', response.data.signedRequest);
             xhr.setRequestHeader("Content-Type", "mp4");
-            // xhr.onprogress = function (evt){
-            //    if (evt.lengthComputable) {
-            //      var percentComplete = (evt.loaded / evt.total)*100;
-            //
-            //     //  $('#progressbar').progressbar( "option", "value", percentComplete );
-            //    }
-            // };
+            xhr.upload.onprogress = function(evt) {
+              if (evt.lengthComputable) {  //evt.loaded the bytes browser receive
+                 //evt.total the total bytes seted by the header
+                var percentComplete = (evt.loaded / evt.total)*100;
+                var value = (percentComplete/100)*$('.file-picker-container').width();
+                $('#progress-bar').attr( "style", "width:" + value + "px;" );
+              }
+            };
             xhr.onreadystatechange = () => {
               if(xhr.readyState === 4){
                 if(xhr.status === 200){

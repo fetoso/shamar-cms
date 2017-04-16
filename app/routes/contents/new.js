@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return {
       title: '',
       body: '',
-      video_url: '', 
+      video_url: '',
       notify: false,
       is_active: false
     };
@@ -17,9 +17,9 @@ export default Ember.Route.extend({
 
   actions: {
     createContent: function(content) {
-      var _this = this;
+      // var _this = this;
       this.store.createRecord('content', content).save().then( function() {
-        _this.transitionTo('contents');
+        window.location.replace('/contents');
       });
     }
   }

@@ -11,9 +11,10 @@ export default Ember.Route.extend({
 
   actions: {
     createCategory: function(category) {
-      var _this = this;
+      // var _this = this;
       this.store.createRecord('category', category).save().then( function() {
-        _this.transitionTo('categories');
+        window.location.replace('/categories');
+        // _this.transitionTo('categories');
       });
     }
   }
