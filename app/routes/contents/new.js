@@ -19,7 +19,7 @@ export default Ember.Route.extend({
     createContent: function(content) {
       // var _this = this;
       this.store.createRecord('content', content).save().then( function() {
-        window.location.replace('/contents');
+        window.location.replace('contents');
       });
     }
   }

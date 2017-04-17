@@ -21,7 +21,7 @@ export default Ember.Route.extend({
       console.log('user', user);
       // var _this = this;
       this.store.createRecord('user', user).save().then( function() {
-        window.location.replace('/users');
+        window.location.replace('users');
         // _this.transitionTo('users');
       });
     }
