@@ -85,7 +85,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.locationType = 'hash';
+    // ENV.locationType = 'hash';
     ENV.APP.usingCors = true;
 		ENV.APP.corsWithCreds = true;
 		ENV.APP.apiURL = 'http://shamar-dev.us-east-1.elasticbeanstalk.com';
