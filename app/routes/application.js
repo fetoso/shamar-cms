@@ -5,6 +5,10 @@ export default Ember.Route.extend({
   session: Ember.inject.service('session'),
 
   actions: {
+    // error: function(error, transition) {
+    //   // handle the error
+    //   alert(error.message);
+    // },
     logout: function() {
       if (confirm("Are you sure you want to Logout?")) {
         var _this = this;

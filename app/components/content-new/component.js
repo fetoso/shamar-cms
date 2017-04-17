@@ -27,7 +27,7 @@ export default Ember.Component.extend({
             data: {
               filename: file.name, // - String (Email format) *
               filetype: type, // - String (mpg-4, mpeg-4, mp4)*
-              category: ENV.SHAMAR_CATEGORY, // - CategoryID *
+              category: '58f4cee87a60432a90db4285',// ENV.SHAMAR_CATEGORY, // - CategoryID *
               approved: false, // - Boolean (Only when user is admin can edit this field)
             },
             headers: {
