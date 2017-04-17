@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+    SHAMAR_CATEGORY: process.env.SHAMAR_CATEGORY,
     modulePrefix: 'shamar-cms',
     environment: environment,
     rootURL: '/',

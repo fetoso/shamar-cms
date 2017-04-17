@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from "../../config/environment";
 
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
@@ -26,7 +27,7 @@ export default Ember.Component.extend({
             data: {
               filename: file.name, // - String (Email format) *
               filetype: type, // - String (mpg-4, mpeg-4, mp4)*
-              category: '589a2a1f44251c0bfe7c53ad', // - CategoryID *
+              category: ENV.SHAMAR_CATEGORY, // - CategoryID *
               approved: false, // - Boolean (Only when user is admin can edit this field)
             },
             headers: {
