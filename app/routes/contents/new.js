@@ -17,9 +17,11 @@ export default Ember.Route.extend({
 
   actions: {
     createContent: function(content) {
-      // var _this = this;
+      var _this = this;
       this.store.createRecord('content', content).save().then( function() {
-        window.location.replace('contents');
+        var t = _this.get('router.url');
+        var destination = t.substr(0, t.lastIndexOf("/"));
+        window.location.replace(destination);
       });
     }
   }
