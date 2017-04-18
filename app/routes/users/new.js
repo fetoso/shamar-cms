@@ -21,10 +21,10 @@ export default Ember.Route.extend({
       console.log('user', user);
       var _this = this;
       this.store.createRecord('user', user).save().then( function() {
-        var t = _this.get('router.url');
-        var destination = t.substr(0, t.lastIndexOf("/"));
-        window.location.replace('/#' + destination);
-        // _this.transitionTo('users');
+        // var t = _this.get('router.url');
+        // var destination = t.substr(0, t.lastIndexOf("/"));
+        // window.location.replace('/#' + destination);
+        _this.transitionTo('users');
       });
     }
   }
