@@ -15,7 +15,7 @@ export default Ember.Route.extend({
       this.store.createRecord('category', category).save().then( function() {
         var t = _this.get('router.url');
         var destination = t.substr(0, t.lastIndexOf("/"));
-        window.location.replace(destination);
+        window.location.replace('/#' + destination);
       });
     }
   }
