@@ -16,6 +16,7 @@ export default Ember.Route.extend({
         var t = _this.get('router.url');
         var destination = t.substr(0, t.lastIndexOf("/"));
         window.location.replace('/#' + destination);
+        // _this.transitionTo('categories');
       });
     }
   }
