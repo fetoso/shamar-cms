@@ -27,13 +27,16 @@ export default OAuth2PasswordGrant.extend({
         }),
         contentType: 'application/json'
         // dataType: 'json'
-      }).then(function(response){
-        console.log('login response', response);
-        Ember.run(function(){
-          resolve({
-            token: response.data.token
+      }).then(function(response) {
+        if (response.data.is_admin) {
+          Ember.run(function(){
+            resolve({
+              token: response.data.token
+            });
           });
-        });
+        } else {
+          alert('Invalid email or password.');
+        }
       }, function(xhr) {
         var response = xhr.responseText;
         Ember.run(function(){

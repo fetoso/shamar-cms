@@ -20,7 +20,6 @@ export default Ember.Route.extend({
       var _this = this;
       this.store.createRecord('content', content).save().then( function() {
         var t = _this.get('router.url');
-        console.log(t);
         var destination = t.substr(0, t.lastIndexOf("/"));
         window.location.replace('/#' + destination);
       });

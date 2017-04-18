@@ -4,7 +4,6 @@ import DS from 'ember-data';
 export default DS.RESTSerializer.extend({
   primaryKey: '_id',
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-
     if (payload.data && payload.paginator) {
       payload = {
         users: payload.data,
@@ -30,7 +29,6 @@ export default DS.RESTSerializer.extend({
   },
   serialize(snapshot, options) {
     var json = this._super(...arguments);
-    console.log('DATA:', json, snapshot, options);
 
 
     delete json.__v;

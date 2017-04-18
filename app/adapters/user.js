@@ -8,5 +8,13 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   host: config.APP.apiURL,
   urlForCreateRecord() {
     return `${config.APP.apiURL}/${this.namespace}/accounts/signup`;
+  },
+  handleResponse: function(status, headers, payload){
+    // console.log('errors:', status, headers, payload);
+    if(status === 400 && payload.errors){
+      alert('There was an error.');
+      return new DS.InvalidError(payload.errors);
+    }
+    return this._super(...arguments);
   }
 });

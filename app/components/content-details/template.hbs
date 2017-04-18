@@ -18,23 +18,23 @@
             {{/if}}
             <div class="form-group input-zone">
               <div class="col-lg-12">
-                {{input class="form-control" placeholder="Video Url" value=item.video_url disabled='entryNotAllowed' required='required'}}
+                {{input class="form-control" placeholder="Video Url" value=item.video_url id="video_url" disabled='entryNotAllowed' required='required'}}
               </div>
             </div>
             <div class="form-group">
               <div class="col-lg-12">
-                {{input class="form-control" placeholder="Title" value=item.title}}
+                {{input class="form-control" placeholder="Title" value=item.title id="title"}}
               </div>
             </div>
             <div class="form-group">
               <div class="col-lg-12">
-                {{textarea class="form-control" placeholder="Body" value=item.body rows='6'}}
+                {{textarea class="form-control" placeholder="Body" value=item.body id="body" rows='6'}}
               </div>
             </div>
             <div class="form-group">
               <div class="col-lg-12">
                 <div class="select-container">
-                  {{#x-select class="form-control" value=item.notify action='selectNotify' as |xs|}}
+                  {{#x-select class="form-control" value=item.notify id="notify" action='selectNotify' as |xs|}}
                     {{#xs.option value=false}}Silent{{/xs.option}}
                     {{#xs.option value=true}}Notification{{/xs.option}}
                   {{/x-select}}
@@ -44,7 +44,7 @@
             <div class="form-group">
               <div class="col-lg-12">
                 <div class="select-container">
-                  {{#x-select class="form-control" value=item.is_active action='selectActive' as |xs|}}
+                  {{#x-select class="form-control" value=item.is_active id="is_active" action='selectActive' as |xs|}}
                     {{#xs.option value=false}}Inactive{{/xs.option}}
                     {{#xs.option value=true}}Active{{/xs.option}}
                   {{/x-select}}

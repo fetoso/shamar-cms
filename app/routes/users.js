@@ -25,6 +25,11 @@ export default Ember.Route.extend(RouteMixin, AuthenticatedRouteMixin, {
   },
   session: Ember.inject.service('session'),
   actions: {
+    error: function(error, transition) {
+      console.log('///alert///');
+      // handle the error
+      alert(error.message);
+    },
     deleteUser: function(user) {
       if (confirm("Are you sure you want to Delete this item?")) {
         var _this = this;

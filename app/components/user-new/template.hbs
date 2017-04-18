@@ -7,43 +7,43 @@
           <legend>New User</legend>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Name *" value=item.first_name}}
+              {{input class="form-control" placeholder="Name *" value=item.first_name id="first_name"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Last Name *" value=item.last_name}}
+              {{input class="form-control" placeholder="Last Name *" value=item.last_name id="last_name"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Email *" value=item.email}}
+              {{input class="form-control" placeholder="Email *" value=item.email id="email"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Password *" value=item.password}}
+              {{input class="form-control" placeholder="Password *" value=item.password id="password"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Confirm Password *" value=item.confirmPassword}}
+              {{input class="form-control" placeholder="Confirm Password *" value=item.confirmPassword id="confirmPassword"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Shamars" value=item.shamars}}
+              {{input class="form-control" placeholder="Shamars" value=item.shamars id="shamars"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="City" value=item.city}}
+              {{input class="form-control" placeholder="City" value=item.city id="city"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.country action='selectCountry' as |xs|}}
+                {{#x-select class="form-control" value=item.country id="country" action='selectCountry' as |xs|}}
                   {{#xs.option value='Puerto Rico'}}Puerto Rico{{/xs.option}}
                   {{#xs.option value='USA'}}USA{{/xs.option}}
                 {{/x-select}}
@@ -53,7 +53,7 @@
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.state action='selectState' as |xs|}}
+                {{#x-select class="form-control" value=item.state id="state" action='selectState' as |xs|}}
                   {{#xs.option value='Puerto Rico' }}Puerto Rico{{/xs.option}}
                   {{#xs.option value='Alabama' }}Alabama{{/xs.option}}
                   {{#xs.option value='Alaska' }}Alaska{{/xs.option}}
@@ -118,18 +118,18 @@
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{bootstrap-datepicker class="form-control" value=item.birthdate placeholder="Birthdate" format='mm/dd/yyyy'}}
+              {{bootstrap-datepicker class="form-control" value=item.birthdate id="birthdate" placeholder="Birthdate" format='mm/dd/yyyy'}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
-              {{input class="form-control" placeholder="Account Type *" value=item.account_type}}
+              {{input class="form-control" placeholder="Account Type *" value=item.account_type id="account_type"}}
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.is_admin action='selectRole' as |xs|}}
+                {{#x-select class="form-control" value=item.is_admin id="is_admin" action='selectRole' as |xs|}}
                   {{#xs.option value=true}}Admin{{/xs.option}}
                   {{#xs.option value=false}}User{{/xs.option}}
                 {{/x-select}}
@@ -139,7 +139,7 @@
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.verified action='selectVerified' as |xs|}}
+                {{#x-select class="form-control" value=item.verified id="verified" action='selectVerified' as |xs|}}
                   {{#xs.option value=false}}Unverified{{/xs.option}}
                   {{#xs.option value=true}}Verified{{/xs.option}}
                 {{/x-select}}
@@ -149,7 +149,7 @@
           <div class="form-group">
             <div class="col-lg-12">
               <div class="select-container">
-                {{#x-select class="form-control" value=item.is_banned action='selectBan' as |xs|}}
+                {{#x-select class="form-control" value=item.is_banned id="is_banned" action='selectBan' as |xs|}}
                   {{#xs.option value=false}}Active{{/xs.option}}
                   {{#xs.option value=true}}Banned{{/xs.option}}
                 {{/x-select}}
