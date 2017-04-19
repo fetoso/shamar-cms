@@ -20,10 +20,13 @@ export default Ember.Route.extend({
     createUser: function(user) {
       console.log('user', user);
       var _this = this;
+      // _this.store.get('users').push(user);
+      // _this.transitionTo('users');
       this.store.createRecord('user', user).save().then( function() {
         // var t = _this.get('router.url');
         // var destination = t.substr(0, t.lastIndexOf("/"));
         // window.location.replace('/#' + destination);
+        // _this.store.push(user);
         _this.transitionTo('users');
       });
     }
