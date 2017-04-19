@@ -22,8 +22,9 @@ export default Ember.Route.extend({
         console.log('happening!');
         var t = _this.get('router.url');
         var destination = t.substr(0, t.lastIndexOf("/"));
+        console.log(destination);
+        $(location).attr('href', '/#' + destination);
         window.location.replace('/#' + destination);
-        // _this.transitionTo('contents');
       });
     }
   }
