@@ -26,7 +26,7 @@ export default Ember.Route.extend({
         $('tbody').prepend(' \
           <tr> \
             <!-- <td class="hidden-xs">' + response.id + '</td> --> \
-            <td><a href="#" data-toggle="modal" data-target="#modal' + content.id + '">' + content.title +'</a></td> \
+            <td><a href="#" data-toggle="modal" data-target="#modal' + response.id + '">' + content.title +'</a></td> \
             <td class="hidden-xs">' + content.notify + '</td> \
             <td class="hidden-xs">' + content.is_active + '</td> \
             <td> \
